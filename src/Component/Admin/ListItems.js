@@ -11,15 +11,15 @@ import DevicesIcon from '@material-ui/icons/Devices';
 import BookIcon from '@material-ui/icons/Book';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 
-// import CategoryInterface from './CategoryInterface';
-// import DisplayAllCategory from "./DisplayAllCategory"
-// import SubCategoryInterface from "./SubCategoryInterface"
-// import DisplayAllSubCategories from "./DisplayAllSubCategories"
-// import MobileInterface from "./MobileInterface"
-// import DisplayMobiles from "./DisplayMobiles"
-// import MobilePicture from './MobilePicture';
-// import DisplayOrders from './DisplayOrders'
-// import DisplayOrdersDetails from './DisplayOrdersDetails';
+import CategoryInterface from './CategoryInterface';
+import DisplayAllCategory from "./DisplayAllCategory"
+import SubCategoryInterface from "./SubCategoryInterface"
+import DisplayAllSubCategories from "./DisplayAllSubCategories"
+import MobileInterface from "./MobileInterface"
+import DisplayMobiles from "./DisplayMobiles"
+import MobilePicture from './MobilePicture';
+import DisplayOrders from './DisplayOrders'
+import DisplayOrdersDetails from './DisplayOrdersDetails';
 export default function ListItems(props){
 
 
@@ -31,47 +31,47 @@ return(
  <div>
     <ListItem button>
       <ListItemIcon>
-      <CategoryIcon />
+      <CategoryIcon onClick={()=>handleClick(<CategoryInterface/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Category" onClick={()=>handleClick(<CategoryInterface/>)} /> */}
+      <ListItemText primary="Category" onClick={()=>handleClick(<CategoryInterface/>)} />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-      <ListIcon/>
+      <ListIcon onClick={()=>handleClick(<DisplayAllCategory/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="List Category" onClick={()=>handleClick(<DisplayAllCategory/>)} /> */}
+      <ListItemText primary="List Category" onClick={()=>handleClick(<DisplayAllCategory/>)} />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AccountTreeIcon />
+        <AccountTreeIcon onClick={()=>handleClick(<SubCategoryInterface/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Subcategories" onClick={()=>handleClick(<SubCategoryInterface/>)}/> */}
+      <ListItemText primary="Subcategories" onClick={()=>handleClick(<SubCategoryInterface/>)}/>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-      <ListIcon/>
+      <ListIcon onClick={()=>handleClick(<DisplayAllSubCategories/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="List subcategories" onClick={()=>handleClick(<DisplayAllSubCategories/>)} /> */}
+      <ListItemText primary="List subcategories" onClick={()=>handleClick(<DisplayAllSubCategories/>)} />
     </ListItem>
 
     <ListItem button>
       <ListItemIcon>
-        <DevicesIcon />
+        <DevicesIcon onClick={()=>handleClick(<MobileInterface/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Add Mobile" onClick={()=>handleClick(<MobileInterface/>)} /> */}
+      <ListItemText primary="Add Mobile" onClick={()=>handleClick(<MobileInterface/>)} />
     </ListItem>
     
     <ListItem button>
       <ListItemIcon>
-        <ListIcon/>
+        <ListIcon onClick={()=>handleClick(<DisplayMobiles/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="List Mobile" onClick={()=>handleClick(<DisplayMobiles/>)}/> */}
+      <ListItemText primary="List Mobile" onClick={()=>handleClick(<DisplayMobiles/>)}/>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AddPhotoAlternateIcon />
+        <AddPhotoAlternateIcon onClick={()=>handleClick(<MobilePicture/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Mobile Pictures" onClick={()=>handleClick(<MobilePicture/>)}/> */}
+      <ListItemText primary="Mobile Pictures" onClick={()=>handleClick(<MobilePicture/>)}/>
     </ListItem>
  {/*    <ListItem button>
       <ListItemIcon>
@@ -87,16 +87,15 @@ return(
     <hr></hr>
     <ListItem button>
       <ListItemIcon>
-        <ReceiptIcon />
+        <ReceiptIcon onClick={()=>handleClick(<DisplayOrders/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Genrate Orders" onClick={()=>handleClick(<DisplayOrders/>)}/> */}
+      <ListItemText primary="Genrate Orders" onClick={()=>handleClick(<DisplayOrders/>)}/>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <BookIcon />
-
+        <BookIcon onClick={()=>handleClick(<DisplayOrdersDetails/>)}/>
       </ListItemIcon>
-      {/* <ListItemText primary="Orders Details" onClick={()=>handleClick(<DisplayOrdersDetails/>)}/> */}
+      <ListItemText primary="Orders Details" onClick={()=>handleClick(<DisplayOrdersDetails/>)}/>
     </ListItem>
 
   </div>
