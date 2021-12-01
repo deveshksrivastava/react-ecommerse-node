@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import {postData} from './FetchNodeService';
 import {useNavigate}   from 'react-router-dom';
-  
+import swal from "sweetalert";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
@@ -53,13 +53,24 @@ export default function AdminLogin() {
     var result=await postData('admin/checkadminlogin',body)
     console.log(result)
     try{
+
     if(result.result)
     {
+      swal({
+        title: "login Successfully",
+        icon: "success",
+        dangerMode: true,
+      }); 
       navigate('/admindashboard');
       //  history.push({pathname:"/admindashboard"});
     }
     else{
-      setMsg("invalid AdminId and Password...")
+      swal({
+        title: "invalid AdminId and Password...",
+        icon: "warning",
+        dangerMode: true,
+      }); 
+      // setMsg("invalid AdminId and Password...")
     }
    }
    catch(err){console.log(err)}
@@ -116,9 +127,9 @@ export default function AdminLogin() {
             >
               Sign In
             </Button>
-            <div style={{fontWeight:600,color:'red'}}>
+            {/* <div style={{fontWeight:600,color:'red'}}>
               {msg}
-            </div>
+            </div> */}
    
         </div>
       </Grid>
