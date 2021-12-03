@@ -85,8 +85,8 @@ export default function AdminLogin() {
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography component="h1" variant="h4">
+            Sign In
           </Typography>
             <TextField
               variant="outlined"

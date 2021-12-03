@@ -125,7 +125,7 @@ export default function AdminDashboard() {
             <MenuIcon />   
           </IconButton>
         
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
             Admin Dashboard
           </Typography>
           <IconButton color="inherit">

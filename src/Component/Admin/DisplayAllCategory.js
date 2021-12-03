@@ -25,6 +25,7 @@ import {
   } from "./FetchNodeService";
   import {isBlank} from "./Checks";
   import renderHTML from "react-render-html";
+import { List } from "@material-ui/core";
 
   const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -411,7 +412,7 @@ export default function DisplayAllCategory(props){
 
     function displayAll() {
         return (
-          <div>  
+          <div> 
           <MaterialTable
             title="Category List"
             columns={[
