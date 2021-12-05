@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react';
 import Grid from "@material-ui/core/Grid";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -13,30 +13,25 @@ import { makeStyles } from '@material-ui/core/styles';
 import {postDataAndImage} from "./FetchNodeService"
 import {isBlank} from "./Checks";
 import renderHtml from 'react-render-html'
-import { Input } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
     root: {
       display:'flex',
       justifyContent:'center',
-      alignItems:'center'
+      alignItems:'center',
     },
     subdiv:{
         padding:20,
         width:700,
         marginTop:20,
-        background:'#fff#fafafa'
+        background:'#fff'
     },
     input:{
         display:"none",
-        height:'20px',
+
     },
     formControl: {
         minWidth: 660,
-      },
-    text:{
-        
-
-    }
+      }
   }));
 export default function CategoryInterface(props) 
 {    const classes = useStyles();
@@ -112,13 +107,14 @@ export default function CategoryInterface(props)
                     Category Interface
                     </div>
                  </Grid>
- 
+
+
                  <Grid item xs={12}>
-                 <TextField  onChange={(event)=>setCategoryName(event.target.value)}  label="Category Name"   fullWidth/>
+                 <TextField onChange={(event)=>setCategoryName(event.target.value)} label="Category Name" variant="outlined" fullWidth />
                  </Grid>
                  
-                 <Grid item xs={12} >
-                 <TextField onChange={(event)=>setCategoryDescription(event.target.value)}  label="Description" variant="outlined" fullWidth />
+                 <Grid item xs={12}>
+                 <TextField onChange={(event)=>setCategoryDescription(event.target.value)} label="Description" variant="outlined" fullWidth />
                  </Grid>
                  
                  <Grid item xs={6}>

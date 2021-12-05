@@ -179,7 +179,7 @@ export default function MobileInterface(props) {
                 padding: 20,
               }}
             >
-              Mobile Interface
+              Product Interface
             </div>
           </Grid>
 
@@ -230,7 +230,7 @@ export default function MobileInterface(props) {
           <Grid item xs={12}>
             <TextField
               onChange={(event) => setMobileName(event.target.value)}
-              label="Mobile Name"
+              label="Product Name"
               variant="outlined"
               fullWidth
             />
@@ -240,7 +240,7 @@ export default function MobileInterface(props) {
           <Grid item xs={12}>
             <TextField
               onChange={(event) => setDescription(event.target.value)}
-              label="Mobile Description"
+              label="Product Description"
               variant="outlined"
               fullWidth
             />
