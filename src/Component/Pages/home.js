@@ -379,7 +379,7 @@ export default function Home(props) {
                   return (
                     <div
                       className="grid-item kids"
-                      style={{ padding: "5px", display: "flex" }}
+                      // style={{ padding: "5px", display: "flex" }}
                     >
                       <div className="grid-item__content-wrapper">
                         <div className="ps-shoe mb-30">
