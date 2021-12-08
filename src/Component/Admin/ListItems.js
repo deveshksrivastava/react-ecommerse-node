@@ -58,7 +58,7 @@ return(
       <ListItemIcon>
         <DevicesIcon onClick={()=>handleClick(<MobileInterface/>)}/>
       </ListItemIcon>
-      <ListItemText primary="Add Mobile" onClick={()=>handleClick(<MobileInterface/>)} />
+      <ListItemText primary="Add Product" onClick={()=>handleClick(<MobileInterface/>)} />
     </ListItem>
     
     <ListItem button>

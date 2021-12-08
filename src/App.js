@@ -17,22 +17,7 @@ function App(props) {
           <Route path="/adminlogin" exact element={<AdminLogin />} />
           <Route path="/consolelist" exact element={ <ConsoleList />} />
           <Route path="/admindashboard" exact element={<AdminDashboard />} history={props.history} />
-          {/* <Route 
-        strict
-        exact
-        component={AdminLogin}
-        path="/adminlogin"
-        history={props.history}
-        >
-        </Route> */}
-        {/* <Route 
-        strict
-        path="/admindashboard"
-        exact
-        component={<AdminDashboard />}
-        history={props.history}
-        >
-        </Route> */}
+   
 
           <Route path="/contact" exact element={<ContactUs />} />
           <Route element={<PageNotFound />} />

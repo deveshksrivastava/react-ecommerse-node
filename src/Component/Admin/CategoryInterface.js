@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display:'flex',
       justifyContent:'center',
-      alignItems:'center'
+      alignItems:'center',
     },
     subdiv:{
         padding:20,
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     input:{
         display:"none",
+
     },
     formControl: {
         minWidth: 660,
@@ -106,7 +107,8 @@ export default function CategoryInterface(props)
                     Category Interface
                     </div>
                  </Grid>
- 
+
+
                  <Grid item xs={12}>
                  <TextField onChange={(event)=>setCategoryName(event.target.value)} label="Category Name" variant="outlined" fullWidth />
                  </Grid>

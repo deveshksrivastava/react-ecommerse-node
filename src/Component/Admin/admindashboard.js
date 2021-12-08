@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from './ListItems';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
             <MenuIcon />   
           </IconButton>
         
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+          <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
             Admin Dashboard
           </Typography>
           <IconButton color="inherit">
