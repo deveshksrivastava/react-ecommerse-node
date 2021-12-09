@@ -14,13 +14,57 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
+import QtySpinner from "./qtySpinner";
 import { getData, ServerURL } from "../Admin/FetchNodeService";
+import {  makeStyles } from "@material-ui/core/styles";
+import {useDispatch } from 'react-redux';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: 10,
+    display: "flex",
+    flexDirection: "column",
+  },
+  paperstyle: {
+    justifyContent: "flex-start",
+    display: "flex",
+    padding: 10,
+    width: 220,
+    height: 360,
+    margin: 5,
+    borderRadius: 10,
+    flexDirection: "column",
+  },
+  imageview: {
+    width: 150,
+    height: 150,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    margin: 2,
+    cursor: "pointer",
+
+    "&:hover": {
+      transform: "scale(1.25)",
+      tansition: "all 0.5s ease 0s",
+    },
+  },
+  arrowstyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
 
 export default function Home(props) {
   const [listCategory, setListCategories] = useState([]);
   const [listSubOffers, setSubOffers] = useState([]);
   const [listSubOffers1, setSubOffers1] = useState([]);
   const [listMobiles, setListMobiles] = useState([]);
+  const [pageRender, setPageRender] = useState(false);
+  const classes = useStyles();
+  var dispatch=useDispatch()
+
   var settings = {
     dots: true,
     infinite: true,
@@ -83,6 +127,17 @@ export default function Home(props) {
     // props.history.push({'pathname':'/categoryview'})
   };
 
+const handleQtyChange=(value,item)=>{
+   console.log(item);
+    if(value===0)
+    {dispatch({type:'REMOVE_CART',payload:[item.categoryid]})}
+    else {
+    item['qtydemand']=value;
+//    alert(JSON.stringify(item))
+    dispatch({type:'ADD_CART',payload:[item.categoryid,item]})
+    }
+    setPageRender(!pageRender);
+  }
   const showCategories = () => {
     return listCategory.map((item) => {
       return (
@@ -375,7 +430,7 @@ export default function Home(props) {
                 data-gap="30"
                 data-radio="100%"
               >
-                {listSubOffers.map((productItems, index) => {
+                {listMobiles.map((item, index) => {
                   return (
                     <div
                       className="grid-item kids"
@@ -393,39 +448,53 @@ export default function Home(props) {
                             <a className="ps-shoe__favorite" href="#">
                               <i className="ps-icon-heart"></i>
                             </a>
-                            <img
-                              src={`${ServerURL}/images/${productItems.icon}`}
-                              alt="FNF"
-                              width="auto"
-                              height="160px"
-                            />
-                            <a
-                              className="ps-shoe__overlay"
-                              href="product-detail.html"
-                            ></a>
+                            <Paper  elevation={3} className={classes.paperstyle}>
+                                <div style={{alignSelf:'center'}} 
+                                onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
+                            >
+                                  <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
+                              
+                                </div>
+                                
+                                <div style={{ fontSize: 14, fontWeight: "bold", padding: 10 }}>
+                                  {item.mobilename.length <= 20
+                                    ? item.mobilename.toUpperCase()
+                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}
+                                </div>
+                                <div style={{ fontSize: 16, padding: 10 }}>
+                                  Price<s>&#8377;{item.price}</s>{" "}
+                                  <span>
+                                    <b>&#8377; {item.price-item.offer}</b>
+                                  </span>
+                                </div>
+                                <div style={{ fontSize: 16, padding: 10 }}>
+                                  <span style={{ color: "green" }}>
+                                    <b>You save </b>
+                                  </span>
+                                  <b>&#8377; {item.offer}</b>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                    {item.stock >= 1 ? (
+                                      <div style={{ margin: 20 }}>
+                                      <QtySpinner
+                                          value={0}
+
+                                        // onChange={(value) => handleQtyChange(value,item)}
+                                      />
+                                      </div>
+                                  ) : (
+                                      <></>
+                                  )}
+                                  </div>
+                            </Paper>
                           </div>
-                          <div className="ps-shoe__content">
-                            <div className="ps-shoe__variants">
-                              <div className="ps-shoe__variant normal">
-                                <img src="images/shoe/redmi.jpg" alt="" />
-                                <img src="images/shoe/samsung.jpg" alt="" />
-                                <img src="images/shoe/4.jpg" alt="" />
-                                <img src="images/shoe/5.jpg" alt="" />
-                              </div>
-                              <select className="ps-rating ps-shoe__rating">
-                                <option value="1">1</option>
-                                <option value="1">2</option>
-                                <option value="1">3</option>
-                                <option value="1">4</option>
-                                <option value="2">5</option>
-                              </select>
-                            </div>
-                            {/* <div className="ps-shoe__detail">
-                                <span className="ps-shoe__price">
-                                  <del>£220</del> £ 120
-                                </span>
-                              </div> */}
-                          </div>
+                         
                         </div>
                       </div>
                     </div>
@@ -450,206 +519,6 @@ export default function Home(props) {
         </div>
         <hr />
 
-        {/* <div className="ps-section--sale-off ps-section pt-80 pb-40">
-                <div className="ps-container"> 
-                    <div className="ps-section__header mb-50">
-                        <h3 className="ps-section__title" data-mask="Sale off">- Hot Deal Today</h3>
-                    </div>
-                    <div className="ps-section__content">
-                        <div className="row">
-                            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
-                                <div className="ps-hot-deal">
-                                <h3>Nike DUNK Max 95 OG</h3>
-                                <p className="ps-hot-deal__price">Only:  <span>£155</span></p>
-                                <ul className="ps-countdown" data-time="December 13, 2017 15:37:25">
-                                    <li><span className="hours"></span><p>Hours</p></li>
-                                    <li className="divider">:</li>
-                                    <li><span className="minutes"></span><p>minutes</p></li>
-                                    <li className="divider">:</li>
-                                    <li><span className="seconds"></span><p>Seconds</p></li>
-                                </ul><a className="ps-btn" href="#">Order Today<i className="ps-icon-next"></i></a>
-                                </div>
-                            </div>
-                            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
-                                <div className="ps-hotspot"><a className="point first active" href="javascript:;"><i className="fa fa-plus"></i>
-                                    <div className="ps-hotspot__content">
-                                    <p className="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la pierna y el pie sin reducir la libertad de movimiento.</p>
-                                    </div></a><a className="point second" href="javascript:;"><i className="fa fa-plus"></i>
-                                    <div className="ps-hotspot__content">
-                                    <p className="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la pierna y el pie sin reducir la libertad de movimiento.</p>
-                                    </div></a><a className="point third" href="javascript:;"><i className="fa fa-plus"></i>
-                                    <div className="ps-hotspot__content">
-                                    <p className="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la pierna y el pie sin reducir la libertad de movimiento.</p>
-                                    </div></a><img src="images/hot-deal.png" alt=""/></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             */}
-
-        {/* <div className="ps-section ps-section--top-sales ps-owl-root pt-80 pb-80">
-                <div className="ps-container">
-             <Slider {...settings}>
-                    <div className="ps-section__header mb-50">
-                        <div className="row">
-                            <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
-                                <h3 className="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
-                            </div>
-                            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                                <div className="ps-owl-actions"><a className="ps-prev" href="#"><i className="ps-icon-arrow-right"></i>Prev</a><a className="ps-next" href="#">Next<i className="ps-icon-arrow-left"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="ps-section__content">
-                        <div className="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
-                        
-                                    <div className="ps-shoes--carousel">
-                                        <div className="ps-shoe">
-                                            <div className="ps-shoe__thumbnail">
-                                                <div className="ps-badge"><span>New</span></div><a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/1.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                                            </div>
-                                            <div className="ps-shoe__content">
-                                                <div className="ps-shoe__variants">
-                                                <div className="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                                <select className="ps-rating ps-shoe__rating">
-                                                    <option value="1">1</option>
-                                                    <option value="1">2</option>
-                                                    <option value="1">3</option>
-                                                    <option value="1">4</option>
-                                                    <option value="2">5</option>
-                                                </select>
-                                                </div>
-                                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price"> £ 120</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                        </div>
-                        <div className="ps-shoes--carousel">
-                            <div className="ps-shoe">
-                            <div className="ps-shoe__thumbnail">
-                                <div className="ps-badge"><span>New</span></div>
-                                <div className="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/2.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div className="ps-shoe__content">
-                                <div className="ps-shoe__variants">
-                                <div className="ps-shoe__variant normal">
-                                    <img src="images/shoe/2.jpg" alt=""/>
-                                    <img src="images/shoe/3.jpg" alt=""/>
-                                    <img src="images/shoe/4.jpg" alt=""/>
-                                    <img src="images/shoe/5.jpg" alt=""/>
-                                </div>
-                                <select className="ps-rating ps-shoe__rating">
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                </select>
-                                </div>
-                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price">
-                                    <del>£220</del> £ 120</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="ps-shoes--carousel">
-                            <div className="ps-shoe">
-                            <div className="ps-shoe__thumbnail">
-                                <div className="ps-badge"><span>New</span></div><a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/3.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div className="ps-shoe__content">
-                                <div className="ps-shoe__variants">
-                                <div className="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select className="ps-rating ps-shoe__rating">
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                </select>
-                                </div>
-                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price"> £ 120</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="ps-shoes--carousel">
-                            <div className="ps-shoe">
-                            <div className="ps-shoe__thumbnail"><a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/4.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div className="ps-shoe__content">
-                                <div className="ps-shoe__variants">
-                                <div className="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select className="ps-rating ps-shoe__rating">
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                </select>
-                                </div>
-                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price"> £ 120</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="ps-shoes--carousel">
-                            <div className="ps-shoe">
-                            <div className="ps-shoe__thumbnail">
-                                <div className="ps-badge"><span>New</span></div>
-                                <a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/5.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div className="ps-shoe__content">
-                                <div className="ps-shoe__variants">
-                                <div className="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select className="ps-rating ps-shoe__rating">
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                </select>
-                                </div>
-                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price"> £ 120</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div className="ps-shoes--carousel">
-                            <div className="ps-shoe">
-                            <div className="ps-shoe__thumbnail"><a className="ps-shoe__favorite" href="#"><i className="ps-icon-heart"></i></a><img src="images/shoe/6.jpg" alt=""/><a className="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div className="ps-shoe__content">
-                                <div className="ps-shoe__variants">
-                                <div className="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select className="ps-rating ps-shoe__rating">
-                                    <option value="1">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="2">5</option>
-                                </select>
-                                </div>
-                                <div className="ps-shoe__detail"><a className="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                                <p className="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span className="ps-shoe__price"> £ 120</span>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                </Slider>
-                </div>
-            </div> */}
         <div
           className="ps-home-testimonial bg--parallax pb-85"
           data-background="images/background/parallax.webp"
