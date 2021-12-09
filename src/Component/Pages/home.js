@@ -407,8 +407,8 @@ export default function Home(props) {
                           <div className="ps-shoe__content">
                             <div className="ps-shoe__variants">
                               <div className="ps-shoe__variant normal">
-                                <img src="images/shoe/2.jpg" alt="" />
-                                <img src="images/shoe/3.jpg" alt="" />
+                                <img src="images/shoe/redmi.jpg" alt="" />
+                                <img src="images/shoe/samsung.jpg" alt="" />
                                 <img src="images/shoe/4.jpg" alt="" />
                                 <img src="images/shoe/5.jpg" alt="" />
                               </div>
