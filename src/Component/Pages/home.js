@@ -14,13 +14,57 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
+import QtySpinner from "./qtySpinner";
 import { getData, ServerURL } from "../Admin/FetchNodeService";
+import {  makeStyles } from "@material-ui/core/styles";
+import {useDispatch } from 'react-redux';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: 10,
+    display: "flex",
+    flexDirection: "column",
+  },
+  paperstyle: {
+    justifyContent: "flex-start",
+    display: "flex",
+    padding: 10,
+    width: 220,
+    height: 360,
+    margin: 5,
+    borderRadius: 10,
+    flexDirection: "column",
+  },
+  imageview: {
+    width: 150,
+    height: 150,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    margin: 2,
+    cursor: "pointer",
+
+    "&:hover": {
+      transform: "scale(1.25)",
+      tansition: "all 0.5s ease 0s",
+    },
+  },
+  arrowstyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
 
 export default function Home(props) {
   const [listCategory, setListCategories] = useState([]);
   const [listSubOffers, setSubOffers] = useState([]);
   const [listSubOffers1, setSubOffers1] = useState([]);
   const [listMobiles, setListMobiles] = useState([]);
+  const [pageRender, setPageRender] = useState(false);
+  const classes = useStyles();
+  var dispatch=useDispatch()
+
   var settings = {
     dots: true,
     infinite: true,
@@ -83,6 +127,17 @@ export default function Home(props) {
     // props.history.push({'pathname':'/categoryview'})
   };
 
+const handleQtyChange=(value,item)=>{
+   console.log(item);
+    if(value===0)
+    {dispatch({type:'REMOVE_CART',payload:[item.categoryid]})}
+    else {
+    item['qtydemand']=value;
+//    alert(JSON.stringify(item))
+    dispatch({type:'ADD_CART',payload:[item.categoryid,item]})
+    }
+    setPageRender(!pageRender);
+  }
   const showCategories = () => {
     return listCategory.map((item) => {
       return (
@@ -375,7 +430,7 @@ export default function Home(props) {
                 data-gap="30"
                 data-radio="100%"
               >
-                {listSubOffers.map((productItems, index) => {
+                {listMobiles.map((item, index) => {
                   return (
                     <div
                       className="grid-item kids"
@@ -393,16 +448,51 @@ export default function Home(props) {
                             <a className="ps-shoe__favorite" href="#">
                               <i className="ps-icon-heart"></i>
                             </a>
-                            <img
-                              src={`${ServerURL}/images/${productItems.icon}`}
-                              alt="FNF"
-                              width="auto"
-                              height="160px"
-                            />
-                            <a
-                              className="ps-shoe__overlay"
-                              href="product-detail.html"
-                            ></a>
+                            <Paper  elevation={3} className={classes.paperstyle}>
+                                <div style={{alignSelf:'center'}} 
+                                onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
+                            >
+                                  <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
+                              
+                                </div>
+                                
+                                <div style={{ fontSize: 14, fontWeight: "bold", padding: 10 }}>
+                                  {item.mobilename.length <= 20
+                                    ? item.mobilename.toUpperCase()
+                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}
+                                </div>
+                                <div style={{ fontSize: 16, padding: 10 }}>
+                                  Price<s>&#8377;{item.price}</s>{" "}
+                                  <span>
+                                    <b>&#8377; {item.price-item.offer}</b>
+                                  </span>
+                                </div>
+                                <div style={{ fontSize: 16, padding: 10 }}>
+                                  <span style={{ color: "green" }}>
+                                    <b>You save </b>
+                                  </span>
+                                  <b>&#8377; {item.offer}</b>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                    {item.stock >= 1 ? (
+                                      <div style={{ margin: 20 }}>
+                                      <QtySpinner
+                                          value={0}
+
+                                        // onChange={(value) => handleQtyChange(value,item)}
+                                      />
+                                      </div>
+                                  ) : (
+                                      <></>
+                                  )}
+                                  </div>
+                            </Paper>
                           </div>
                          
                         </div>
