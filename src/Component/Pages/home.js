@@ -365,6 +365,30 @@ export default function Home(props) {
                 </li>
               </ul>
             </div>
+            <div style={{display:'flex'}}>
+            {listSubOffers.map((productItems, index) => {
+                    return (
+                      <div className="grid-item kids" style={{padding:'5px',display:'flex'}}>
+                        <div className="grid-item__content-wrapper">
+                          <div className="ps-shoe mb-30">
+                            <div className="ps-shoe__thumbnail">
+                              <div className="ps-badge">
+                                <span>New</span>
+                              </div>
+                              <div className="ps-badge ps-badge--sale ps-badge--2nd">
+                                <span>-35%</span>
+                              </div>
+                              <a className="ps-shoe__favorite" href="#">
+                                <i className="ps-icon-heart"></i>
+                              </a>
+                              <img
+                                src={`${ServerURL}/images/${productItems.icon}`}
+                                alt="FNF"
+                                width="auto"
+                                height="160px"
+                              />
+                              <a className="ps-shoe__overlay" href="product-detail.html"></a>
+
             <div className="ps-section__content pb-50">
               <div
                 style={{ display: "flex",flexWrap: "wrap" }}
@@ -386,6 +410,7 @@ export default function Home(props) {
                           <div className="ps-shoe__thumbnail">
                             {/* <div className="ps-badge">
                               <span>New</span>
+
                             </div>
                             <div className="ps-badge ps-badge--sale ps-badge--2nd">
                               <span>-35%</span>
@@ -424,6 +449,13 @@ export default function Home(props) {
                                 <span className="ps-shoe__price">
                                   <del>£220</del> £ 120
                                 </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                               </div> */}
                           </div>
                         </div>
@@ -433,6 +465,7 @@ export default function Home(props) {
                 })}
               </div>
             </div>
+
           </div>
         </div>
 
