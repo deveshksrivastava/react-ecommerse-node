@@ -18,6 +18,7 @@ import QtySpinner from "./qtySpinner";
 import { getData, ServerURL } from "../Admin/FetchNodeService";
 import {  makeStyles } from "@material-ui/core/styles";
 import {useDispatch } from 'react-redux';
+import { useHistory,withRouter } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 10,
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home(props) {
+const Home=(props)=> {
   const [listCategory, setListCategories] = useState([]);
   const [listSubOffers, setSubOffers] = useState([]);
   const [listSubOffers1, setSubOffers1] = useState([]);
@@ -64,7 +65,7 @@ export default function Home(props) {
   const [pageRender, setPageRender] = useState(false);
   const classes = useStyles();
   var dispatch=useDispatch()
-
+  const history= useHistory();
   var settings = {
     dots: true,
     infinite: true,
@@ -112,6 +113,7 @@ export default function Home(props) {
   };
 
   const handleConsoleList1 = (subcategoryid) => {
+
     props.history.push(
       { pathname: "/categoryview" },
       { subcategoryid: subcategoryid }
@@ -120,10 +122,7 @@ export default function Home(props) {
   };
 
   const handleConsoleList = (categoryid) => {
-    props.history.push(
-      { pathname: "/consolelist" },
-      { categoryid: categoryid }
-    );
+    props.history.push({ 'pathname': "/consolelist" },{ 'categoryid': categoryid })
     // props.history.push({'pathname':'/categoryview'})
   };
 
@@ -185,7 +184,8 @@ const handleQtyChange=(value,item)=>{
               margin: 5,
             }}
             onClick={() => handleConsoleList1(item.subcategoryid)}
-          >
+           
+            >
             <Paper elevation={3}>
               <div>
                 <img
@@ -595,3 +595,4 @@ const handleQtyChange=(value,item)=>{
     </>
   );
 }
+export default withRouter(Home);

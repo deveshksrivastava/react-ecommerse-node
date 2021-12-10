@@ -9,7 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import {postData} from './FetchNodeService';
-import {useNavigate}   from 'react-router-dom';
+import {useHistory, useNavigate}   from 'react-router-dom';
 import swal from "sweetalert";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AdminLogin() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const history=useHistory();
   const classes = useStyles();
   const [emailAddress,setEmailAddress]=useState("")
   const [password,setPassword]=useState("")
@@ -61,8 +62,8 @@ export default function AdminLogin() {
         icon: "success",
         dangerMode: true,
       }); 
-      navigate('/admindashboard');
-      //  history.push({pathname:"/admindashboard"});
+      // navigate('/admindashboard');
+      history.push({pathname:"/admindashboard"});
     }
     else{
       swal({
