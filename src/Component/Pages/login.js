@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 /* import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
  */
@@ -52,18 +52,15 @@ const Login = () => {
           <NextLink href="/" passHref>
             <Button
               component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
+              // startIcon={<ArrowBackIcon fontSize="small" />}
             >
               Dashboard
             </Button>
           </NextLink>
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
-              <Typography color="textPrimary" variant="h4">
+              <Typography color="textPrimary" variant="h4" style={{fontSize:"30px", textAlign:"center"}}>
                 Sign in
-              </Typography>
-              <Typography color="textSecondary" gutterBottom variant="body2">
-                Sign in on the internal platform
               </Typography>
             </Box>
             <Grid container spacing={3}>
@@ -98,8 +95,8 @@ const Login = () => {
                 pt: 3,
               }}
             >
-              <Typography align="center" color="textSecondary" variant="body1">
-                or login with email address
+              <Typography align="center" color="textSecondary" variant="body1" style={{fontSize:"25px"}}>
+                 login with email address
               </Typography>
             </Box>
             <TextField
