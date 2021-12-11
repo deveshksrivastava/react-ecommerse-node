@@ -224,41 +224,41 @@ const handleQtyChange=(value,item)=>{
         //   </div>
         // </div>
 
-      <div class="ps-shoe">
-      <div class="ps-shoe__thumbnail">
-        <div className="ps-badge">
-          <span>New</span>
-        </div>
-        <div className="ps-badge ps-badge--sale ps-badge--2nd">
-          <span>-35%</span>
-        </div>
-        <a class="ps-shoe__favorite" href="#">
-          <i class="ps-icon-heart"></i>
-        </a>
-        <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
-        {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
-      </div>
-      <div class="ps-shoe__content">
-        {/* <div class="ps-shoe__variants">
-          <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-          <select class="ps-rating ps-shoe__rating">
-            <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
-            <option value="1">4</option>
-            <option value="2">5</option>
-          </select>
-        </div> */}
-        <div class="ps-shoe__detail">
-          <a class="ps-shoe__name" href="product-detai.html">
-                {item.subcategoryname.length <= 20
-                   ? item.subcategoryname.toUpperCase()
-                   : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
-          </a>
-          <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
-        </div>
-      </div>
-      </div>
+          <div class="ps-shoe">
+          <div class="ps-shoe__thumbnail">
+            <div className="ps-badge">
+              <span>New</span>
+            </div>
+            <div className="ps-badge ps-badge--sale ps-badge--2nd">
+              <span>-35%</span>
+            </div>
+            <a class="ps-shoe__favorite" href="#">
+              <i class="ps-icon-heart"></i>
+            </a>
+            <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
+            {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
+          </div>
+          <div class="ps-shoe__content">
+            {/* <div class="ps-shoe__variants">
+              <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
+              <select class="ps-rating ps-shoe__rating">
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+                <option value="2">5</option>
+              </select>
+            </div> */}
+            <div class="ps-shoe__detail">
+              <a class="ps-shoe__name" href="product-detai.html">
+                    {item.subcategoryname.length <= 20
+                      ? item.subcategoryname.toUpperCase()
+                      : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
+              </a>
+              <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
+            </div>
+          </div>
+          </div>
       );
     });
   };
@@ -597,6 +597,48 @@ const handleQtyChange=(value,item)=>{
                     <div class="ps-owl-actions"><a class="ps-prev" href="#"><i class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="#">Next<i class="ps-icon-arrow-left"></i></a></div>
                   </div>
             </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      left: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowBackIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton> */}
+                  <div style={{ width: "98%" }}>
+                    <Slider {...itemsettings}> {showOffers()}
+                    
+                    </Slider>
+                  </div>
+                  {/* <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      right: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowForwardIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton> */}
+                </div>
+              </div>
           </div>
           {/* {listMobiles.map((item, index) => {
                               return ( 
@@ -634,72 +676,8 @@ const handleQtyChange=(value,item)=>{
                             </div>
                       </div>
                </Slider>
-                              )})}; */}
-        <div className="ps-container">
-          <div className="ps-section__header mb-50">
-            {/* <h3 className="ps-section__title" data-mask="features">
-              - Features Products
-            </h3> */}
-            <div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {/* <div
-                  style={{
-                    fontSize: 30,
-                    color: "#636e72",
-                    fontWeight: "normal",
-                    display: "flex",
-                    letterSpacing: "3.9px",
-                    fontFamily: 'Georgia,Times,"Times New Roman",serif',
-                    justifyContent: "center",
-                    padding: 10,
-                  }}
-                >
-                  TOP OFFERS CONSOLE
-                </div> */}
-                {/* <Divider style={{ marginTop: 5, marginBottom: 5 }} /> */}
-
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <IconButton
-                    style={{
-                      background: "#1e6b7b",
-                      position: "absolute",
-                      zIndex: 1,
-                      left: 5,
-                      opacity: 0.8,
-                    }}
-                  >
-                    <ArrowBackIosIcon
-                      style={{ color: "#FFF", fontSize: "large" }}
-                    />
-                  </IconButton>
-                  <div style={{ width: "98%" }}>
-                    <Slider {...itemsettings}> {showOffers()}</Slider>
-                  </div>
-                  <IconButton
-                    style={{
-                      background: "#1e6b7b",
-                      position: "absolute",
-                      zIndex: 1,
-                      right: 5,
-                      opacity: 0.8,
-                    }}
-                  >
-                    <ArrowForwardIosIcon
-                      style={{ color: "#FFF", fontSize: "large" }}
-                    />
-                  </IconButton>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            )})}; */}
+        
         </div>
 
       </div>

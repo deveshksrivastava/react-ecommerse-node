@@ -2383,7 +2383,7 @@ textarea.form-control {
     top: -15px;
     left: -15px;
     width: calc(100% + 30px);
-    height: calc(100% + 108px);
+    height: calc(83% + 92px);
     border: 1px solid #000;
     z-index: 1000;
     visibility: hidden;
@@ -2471,7 +2471,7 @@ textarea.form-control {
   .ps-shoe .ps-shoe__detail {
     margin-bottom: 0;
     position: relative;
-    min-height: 60px;
+    min-height: 50px;
     background-color: #fff; }
   .ps-shoe .ps-shoe__name {
     font-family: "Archivo Narrow", sans-serif;
@@ -2538,7 +2538,7 @@ textarea.form-control {
   .ps-shoe:hover:before {
     visibility: visible;
     opacity: 1;
-    -webkit-transform: scale(1, 1);
+    -webkit-transform: scale(1, 0.6);
     -moz-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     -o-transform: scale(1, 1);
