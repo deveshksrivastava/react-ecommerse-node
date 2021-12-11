@@ -2398,7 +2398,9 @@ textarea.form-control {
     transition: all 0.3s ease; }
   .ps-shoe .ps-shoe__thumbnail {
     position: relative;
-    z-index: 100; }
+    z-index: 100; 
+    margin: 20px;
+  }
     .ps-shoe .ps-shoe__thumbnail img {
       width: 100%; }
   .ps-shoe .ps-shoe__overlay {
