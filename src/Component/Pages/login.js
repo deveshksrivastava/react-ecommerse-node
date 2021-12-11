@@ -11,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 /* import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
  */
@@ -50,6 +50,14 @@ const Login = (props) => {
         }}
       >
         <Container maxWidth="sm">
+          <NextLink href="/" passHref>
+            <Button
+              component="a"
+               startIcon={<ArrowBackIcon fontSize="small" />}
+            >
+              Dashboard
+            </Button>
+          </NextLink>
           <Link to="/home" passHref>
             <Button
               component="a"

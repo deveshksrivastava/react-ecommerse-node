@@ -8,7 +8,7 @@ import PageNotFound from './Component/Pages/404';
 import ConsoleList from './Component/Pages/consolelist'
 import Login from './Component/Pages/login';
 import CategoryView from './Component/Pages/categoryview';
-import SignUp from './Component/Pages/sign_up';
+import SignUp from './Component/Pages/signup';
 function App(props) {
   return (
     <div>
