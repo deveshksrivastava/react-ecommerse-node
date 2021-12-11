@@ -642,6 +642,7 @@ const handleQtyChange=(value,item)=>{
           </div>
           {/* {listMobiles.map((item, index) => {
                               return ( 
+                                
           <Slider {...settings}> 
           <div className="ps-shoe">
                             <div className="ps-shoe__thumbnail">
