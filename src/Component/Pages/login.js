@@ -2,20 +2,21 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import {Link} from 'react-router-dom';
 import {
   Box,
   Button,
   Container,
   Grid,
-  Link,
   TextField,
   Typography,
 } from "@mui/material";
-// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Footer from './footer';
 /* import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
  */
-const Login = () => {
+const Login = (props) => {
   const router = useRouter();
   const formik = useFormik({
     initialValues: {
@@ -30,7 +31,8 @@ const Login = () => {
       password: Yup.string().max(255).required("Password is required"),
     }),
     onSubmit: () => {
-      router.push("/home");
+     /*  router.push("/home"); */
+      props.history.push({ 'pathname': "/home" })
     },
   });
 
@@ -49,14 +51,14 @@ const Login = () => {
         }}
       >
         <Container maxWidth="sm">
-          <NextLink href="/" passHref>
+          <Link to="/home" passHref>
             <Button
               component="a"
-              // startIcon={<ArrowBackIcon fontSize="small" />}
+              startIcon={<ArrowBackIcon fontSize="small" />}
             >
-              Dashboard
+              Back To Home
             </Button>
-          </NextLink>
+          </Link>
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h4" style={{fontSize:"30px", textAlign:"center"}}>
@@ -137,24 +139,17 @@ const Login = () => {
                 Sign In Now
               </Button>
             </Box>
-            <Typography color="textSecondary" variant="body2">
+            <Typography color="textSecondary" variant="body2" style={{fontSize:"20px"}}>
               Don&apos;t have an account?{" "}
-              <NextLink href="/register">
                 <Link
-                  to="/register"
-                  variant="subtitle2"
-                  underline="hover"
-                  sx={{
-                    cursor: "pointer",
-                  }}
-                >
+                  to="/signup">
                   Sign Up
                 </Link>
-              </NextLink>
             </Typography>
           </form>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 };
