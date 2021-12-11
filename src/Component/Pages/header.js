@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Login from './login';
 
 export default function Header() {
     return (
@@ -12,7 +13,7 @@ export default function Header() {
                   <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
                 </div>
                 <div className="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
-                  <div className="header__actions"><Link to="#">Login & Regiser</Link >
+                  <div className="header__actions"><Link to="/login">Login & Regiser</Link >
                     <div className="btn-group ps-dropdown"><Link  className="dropdown-toggle" to="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i className="fa fa-angle-down"></i></Link >
                       <ul className="dropdown-menu">
                         <li><Link to="#"><img src="images/flag/usa.svg" alt=""/> USD</Link ></li>

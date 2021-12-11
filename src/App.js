@@ -8,6 +8,7 @@ import PageNotFound from './Component/Pages/404';
 import ConsoleList from './Component/Pages/consolelist'
 import Login from './Component/Pages/login';
 import CategoryView from './Component/Pages/categoryview';
+import SignUp from './Component/Pages/sign_up';
 function App(props) {
   return (
     <div>
@@ -21,7 +22,7 @@ function App(props) {
       <Route strict exact path="/login"  component={ Login} history={props.history}/>
       <Route strict exact path="/contact"  component={ContactUs } />
       <Route path="/categoryview" exact component={CategoryView } history={props.history} />
-
+      <Route strict exact path="/sign_up"  component={ SignUp} history={props.history}/>
       <Route component={PageNotFound } />  
     </Router>
         

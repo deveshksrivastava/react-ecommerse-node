@@ -18,7 +18,7 @@ import QtySpinner from "./qtySpinner";
 import { getData, ServerURL } from "../Admin/FetchNodeService";
 import {  makeStyles } from "@material-ui/core/styles";
 import {useDispatch } from 'react-redux';
-import { useHistory,withRouter } from 'react-router-dom'
+import { useHistory,withRouter } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 10,
