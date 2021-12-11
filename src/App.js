@@ -8,7 +8,7 @@ import PageNotFound from './Component/Pages/404';
 import ConsoleList from './Component/Pages/consolelist'
 import Login from './Component/Pages/login';
 import CategoryView from './Component/Pages/categoryview';
-import SignUp from './Component/Pages/sign_up';
+import SignUp from './Component/Pages/signup';
 function App(props) {
   return (
     <div>
@@ -23,7 +23,7 @@ function App(props) {
       <Route   path="/login" exact  component={Login} history={props.history}/>
       <Route   path="/contact" exact component={ContactUs } />
       <Route   path="/categoryview" exact component={CategoryView } history={props.history} />
-
+      <Route   path="/signup" exact  component={SignUp} history={props.history}/>
       <Route component={PageNotFound } />
       </Switch>  
     </Router>

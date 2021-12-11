@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Footer from './footer';
 /* import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
  */
@@ -138,24 +139,17 @@ const Login = (props) => {
                 Sign In Now
               </Button>
             </Box>
-            <Typography color="textSecondary" variant="body2">
+            <Typography color="textSecondary" variant="body2" style={{fontSize:"20px"}}>
               Don&apos;t have an account?{" "}
-              <NextLink href="/register">
                 <Link
-                  to="/register"
-                  variant="subtitle2"
-                  underline="hover"
-                  sx={{
-                    cursor: "pointer",
-                  }}
-                >
+                  to="/signup">
                   Sign Up
                 </Link>
-              </NextLink>
             </Typography>
           </form>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 };
