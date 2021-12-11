@@ -171,59 +171,6 @@ const handleQtyChange=(value,item)=>{
   const showOffers = () => {
     return listSubOffers.map((item) => {
       return (
-        // <div>
-        //   <div
-        //     style={{
-        //       //border: "1px solid #ecf0f1",
-        //       width: 200,
-        //       justifyContent: "center",
-        //       alignItems: "center",
-        //       display: "flex",
-        //       flexDirection: "column",
-        //       padding: 10,
-        //       margin: 5,
-        //     }}
-        //     onClick={() => handleConsoleList1(item.subcategoryid)}
-           
-        //     >
-        //     <Paper elevation={3}>
-        //       <div>
-        //         <img
-        //           src={`${ServerURL}/images/${item.icon}`}
-        //           alt="FNF"
-        //           width="auto"
-        //           height="160px"
-        //         />
-        //       </div>
-        //       <div
-        //         style={{
-        //           fontSize: "2rem",
-        //           fontWeight: "300",
-        //           padding: 10,
-        //           textAlign: "center",
-        //         }}
-        //       >
-        //         {item.subcategoryname.length <= 20
-        //           ? item.subcategoryname.toUpperCase()
-        //           : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
-        //       </div>
-        //       {/*     <div style={{ fontSize: 16, padding: 10 }}>
-        //         Price<s>&#8377;{item.price}</s>{" "}
-        //         <span>
-        //           <b>&#8377; {item.price-item.offer}</b>
-        //         </span>
-        //       </div>
-        //       <div style={{ fontSize: 16, padding: 10 }}>
-        //         <span style={{ color: "green" }}>
-        //           <b>You save </b>
-        //         </span>
-        //         <b>&#8377; {item.offer}</b>
-        //       </div> 
-        //   */}{" "}
-        //     </Paper>
-        //   </div>
-        // </div>
-
           <div class="ps-shoe">
           <div class="ps-shoe__thumbnail">
             <div className="ps-badge">
@@ -235,29 +182,15 @@ const handleQtyChange=(value,item)=>{
             <a class="ps-shoe__favorite" href="#">
               <i class="ps-icon-heart"></i>
             </a>
-            <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
-            {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
-          </div>
-          <div class="ps-shoe__content">
-            {/* <div class="ps-shoe__variants">
-              <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-              <select class="ps-rating ps-shoe__rating">
-                <option value="1">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-                <option value="1">4</option>
-                <option value="2">5</option>
-              </select>
-            </div> */}
-            <div class="ps-shoe__detail">
-              <a class="ps-shoe__name" href="product-detai.html">
+            <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='180px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
+            <a class="ps-shoe__name" href="#">
                     {item.subcategoryname.length <= 20
                       ? item.subcategoryname.toUpperCase()
                       : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
               </a>
               <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
-            </div>
           </div>
+        
           </div>
       );
     });
@@ -608,7 +541,7 @@ const handleQtyChange=(value,item)=>{
                     alignItems: "center",
                   }}
                 >
-                  <IconButton
+                  {/* <IconButton
                     style={{
                       background: "#1e6b7b",
                       position: "absolute",
@@ -620,10 +553,9 @@ const handleQtyChange=(value,item)=>{
                     <ArrowBackIosIcon
                       style={{ color: "#FFF", fontSize: "large" }}
                     />
-                  </IconButton>
-                  <div style={{ width: "98%" }}>
+                  </IconButton> */}
+                  <div style={{ width: "100%",margin:'inherit' }}>
                     <Slider {...itemsettings}> 
-                          {/* {showOffers()} */}
                           {listSubOffers.map((item, index) => {
                         return (
                           <div
@@ -643,7 +575,7 @@ const handleQtyChange=(value,item)=>{
                                     <a class="ps-shoe__favorite" href="#">
                                       <i class="ps-icon-heart"></i>
                                     </a>
-                                    <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
+                                    <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='180px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
                                     {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
                                   </div>
                                   <div class="ps-shoe__content">
@@ -672,7 +604,7 @@ const handleQtyChange=(value,item)=>{
                       })}
                     </Slider>
                   </div>
-                   <IconButton
+                   {/* <IconButton
                     style={{
                       background: "#1e6b7b",
                       position: "absolute",
@@ -684,7 +616,7 @@ const handleQtyChange=(value,item)=>{
                     <ArrowForwardIosIcon
                       style={{ color: "#FFF", fontSize: "large" }}
                     />
-                  </IconButton> 
+                  </IconButton>  */}
                 </div>
               </div> 
           </div>
