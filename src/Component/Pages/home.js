@@ -171,58 +171,94 @@ const handleQtyChange=(value,item)=>{
   const showOffers = () => {
     return listSubOffers.map((item) => {
       return (
-        <div>
-          <div
-            style={{
-              //border: "1px solid #ecf0f1",
-              width: 200,
-              justifyContent: "center",
-              alignItems: "center",
-              display: "flex",
-              flexDirection: "column",
-              padding: 10,
-              margin: 5,
-            }}
-            onClick={() => handleConsoleList1(item.subcategoryid)}
+        // <div>
+        //   <div
+        //     style={{
+        //       //border: "1px solid #ecf0f1",
+        //       width: 200,
+        //       justifyContent: "center",
+        //       alignItems: "center",
+        //       display: "flex",
+        //       flexDirection: "column",
+        //       padding: 10,
+        //       margin: 5,
+        //     }}
+        //     onClick={() => handleConsoleList1(item.subcategoryid)}
            
-            >
-            <Paper elevation={3}>
-              <div>
-                <img
-                  src={`${ServerURL}/images/${item.icon}`}
-                  alt="FNF"
-                  width="auto"
-                  height="160px"
-                />
-              </div>
-              <div
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: "300",
-                  padding: 10,
-                  textAlign: "center",
-                }}
-              >
-                {item.subcategoryname.length <= 20
-                  ? item.subcategoryname.toUpperCase()
-                  : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
-              </div>
-              {/*     <div style={{ fontSize: 16, padding: 10 }}>
-                Price<s>&#8377;{item.price}</s>{" "}
-                <span>
-                  <b>&#8377; {item.price-item.offer}</b>
-                </span>
-              </div>
-              <div style={{ fontSize: 16, padding: 10 }}>
-                <span style={{ color: "green" }}>
-                  <b>You save </b>
-                </span>
-                <b>&#8377; {item.offer}</b>
-              </div> 
-          */}{" "}
-            </Paper>
-          </div>
+        //     >
+        //     <Paper elevation={3}>
+        //       <div>
+        //         <img
+        //           src={`${ServerURL}/images/${item.icon}`}
+        //           alt="FNF"
+        //           width="auto"
+        //           height="160px"
+        //         />
+        //       </div>
+        //       <div
+        //         style={{
+        //           fontSize: "2rem",
+        //           fontWeight: "300",
+        //           padding: 10,
+        //           textAlign: "center",
+        //         }}
+        //       >
+        //         {item.subcategoryname.length <= 20
+        //           ? item.subcategoryname.toUpperCase()
+        //           : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
+        //       </div>
+        //       {/*     <div style={{ fontSize: 16, padding: 10 }}>
+        //         Price<s>&#8377;{item.price}</s>{" "}
+        //         <span>
+        //           <b>&#8377; {item.price-item.offer}</b>
+        //         </span>
+        //       </div>
+        //       <div style={{ fontSize: 16, padding: 10 }}>
+        //         <span style={{ color: "green" }}>
+        //           <b>You save </b>
+        //         </span>
+        //         <b>&#8377; {item.offer}</b>
+        //       </div> 
+        //   */}{" "}
+        //     </Paper>
+        //   </div>
+        // </div>
+
+      <div class="ps-shoe">
+      <div class="ps-shoe__thumbnail">
+        <div className="ps-badge">
+          <span>New</span>
         </div>
+        <div className="ps-badge ps-badge--sale ps-badge--2nd">
+          <span>-35%</span>
+        </div>
+        <a class="ps-shoe__favorite" href="#">
+          <i class="ps-icon-heart"></i>
+        </a>
+        <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
+        {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
+      </div>
+      <div class="ps-shoe__content">
+        {/* <div class="ps-shoe__variants">
+          <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
+          <select class="ps-rating ps-shoe__rating">
+            <option value="1">1</option>
+            <option value="1">2</option>
+            <option value="1">3</option>
+            <option value="1">4</option>
+            <option value="2">5</option>
+          </select>
+        </div> */}
+        <div class="ps-shoe__detail">
+          <a class="ps-shoe__name" href="product-detai.html">
+                {item.subcategoryname.length <= 20
+                   ? item.subcategoryname.toUpperCase()
+                   : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
+          </a>
+          <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
+        </div>
+      </div>
+      </div>
       );
     });
   };
@@ -561,6 +597,103 @@ const handleQtyChange=(value,item)=>{
                   </div>
             </div>
           </div>
+          {/* {listMobiles.map((item, index) => {
+                              return ( 
+          <Slider {...settings}> 
+          <div className="ps-shoe">
+                            <div className="ps-shoe__thumbnail">
+                              <div className="ps-badge">
+                                <span>New</span>
+                              </div>
+                              <div className="ps-badge ps-badge--sale ps-badge--2nd">
+                                <span>-35%</span>
+                              </div>
+                              <a class="ps-shoe__favorite" href="#">
+                                <i class="ps-icon-heart"></i>
+                              </a>
+                              <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
+                              <a class="ps-shoe__overlay" href="product-detail.html"></a>
+                            </div>
+                            <div className="ps-shoe__content">
+                              <div class="ps-shoe__variants">
+                                <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
+                                <select class="ps-rating ps-shoe__rating">
+                                  <option value="1">1</option>
+                                  <option value="1">2</option>
+                                  <option value="1">3</option>
+                                  <option value="1">4</option>
+                                  <option value="2">5</option>
+                                </select>
+                              </div>
+                              <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{item.mobilename.length <= 20
+                                    ? item.mobilename.toUpperCase()
+                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}</a>
+                                <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ {item.price}</span>
+                              </div>
+                            </div>
+                      </div>
+               </Slider>
+                              )})}; */}
+        <div className="ps-container">
+          <div className="ps-section__header mb-50">
+            {/* <h3 className="ps-section__title" data-mask="features">
+              - Features Products
+            </h3> */}
+            <div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                {/* <div
+                  style={{
+                    fontSize: 30,
+                    color: "#636e72",
+                    fontWeight: "normal",
+                    display: "flex",
+                    letterSpacing: "3.9px",
+                    fontFamily: 'Georgia,Times,"Times New Roman",serif',
+                    justifyContent: "center",
+                    padding: 10,
+                  }}
+                >
+                  TOP OFFERS CONSOLE
+                </div> */}
+                {/* <Divider style={{ marginTop: 5, marginBottom: 5 }} /> */}
+
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      left: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowBackIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton>
+                  <div style={{ width: "98%" }}>
+                    <Slider {...itemsettings}> {showOffers()}</Slider>
+                  </div>
+                  <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      right: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowForwardIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton>
           <div class="ps-section__content">
             <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
               <div class="ps-shoes--carousel">
@@ -693,10 +826,12 @@ const handleQtyChange=(value,item)=>{
                       <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
         <hr />
