@@ -2192,6 +2192,7 @@ textarea.form-control {
     .ps-testimonial .ps-testimonial__thumbnail img {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
+      background-color: #d7699f;
       -ms-border-radius: 50%;
       border-radius: 50%; }
     .ps-testimonial .ps-testimonial__thumbnail i {
@@ -3543,7 +3544,7 @@ textarea.form-control {
     height: 100%;
     z-index: 10;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.25); }
+    background-color: rgba(233, 211, 211, 0.25); }
   .ps-home-testimonial .owl-slider {
     position: relative;
     margin-top: -60px; }
@@ -6013,6 +6014,7 @@ html, body {
 html .bg--parallax {
   position: relative;
   z-index: 10;
+  /* top: 90px; */
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
   background-position: 50% 50%;
