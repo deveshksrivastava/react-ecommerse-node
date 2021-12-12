@@ -3,6 +3,7 @@ import Home from './Component/Pages/home';
 import AdminLogin from './Component/Admin/adminlogin';
 import AdminDashboard from "./Component/Admin/admindashboard";
 import ContactUs from './Component/Pages/contactus';
+// import ProductList from './Component/Pages/productlisting';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import PageNotFound from './Component/Pages/404';
 import ConsoleList from './Component/Pages/consolelist'
@@ -23,6 +24,8 @@ function App(props) {
       <Route   path="/admindashboard" exact component={AdminDashboard } history={props.history} /> 
       <Route   path="/login" exact  component={Login} history={props.history}/>
       <Route   path="/contact" exact component={ContactUs } />
+      {/* <Route   path="/product" exact component={ProductList } /> */}
+
       <Route   path="/categoryview" exact component={CategoryView } history={props.history} />
       <Route   path="/signup" exact  component={SignUp} history={props.history}/>
       <Route   path="/forgotpasswort" exact  component={Forgot} history={props.history}/>

@@ -2373,17 +2373,17 @@ textarea.form-control {
 
 .ps-shoe {
   position: relative;
-  padding-bottom: 70px;
+   padding-bottom: 0px;
   -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease; 
   transition: all 0.4s ease; }
   .ps-shoe:before {
     content: '';
     position: absolute;
     top: -15px;
     left: -15px;
-    width: calc(100% + 30px);
-    height: calc(100% + 108px);
+    width: calc(90% + 5px);
+    height: calc(85% + 92px);
     border: 1px solid #000;
     z-index: 1000;
     visibility: hidden;
@@ -2391,16 +2391,22 @@ textarea.form-control {
     -webkit-transform: scale(0.8, 0.8);
     -moz-transform: scale(0.8, 0.8);
     -ms-transform: scale(0.8, 0.8);
-    -o-transform: scale(0.8, 0.8);
-    transform: scale(0.8, 0.8);
+    -o-transform: scale(0.9, 0.9);
+    transform: scale(1, 1);
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease; }
   .ps-shoe .ps-shoe__thumbnail {
     position: relative;
-    z-index: 100; }
+    z-index: 100; 
+    padding: 10px 6px 6px 6px;
+    margin: 20px;
+  }
     .ps-shoe .ps-shoe__thumbnail img {
-      width: 100%; }
+      width: 60%;
+      border: groove; 
+      height: 200px;
+      }
   .ps-shoe .ps-shoe__overlay {
     position: absolute;
     top: 0;
@@ -2471,7 +2477,7 @@ textarea.form-control {
   .ps-shoe .ps-shoe__detail {
     margin-bottom: 0;
     position: relative;
-    min-height: 60px;
+    min-height: 50px;
     background-color: #fff; }
   .ps-shoe .ps-shoe__name {
     font-family: "Archivo Narrow", sans-serif;
@@ -2493,7 +2499,7 @@ textarea.form-control {
     display: inline-block;
     position: absolute;
     top: 5px;
-    right: 10px;
+    right: 80px;
     font-family: "Archivo Narrow", sans-serif;
     font-size: 20px;
     color: #5b5b5b; }
@@ -2502,8 +2508,8 @@ textarea.form-control {
       color: #bcbcbc; }
   .ps-shoe .ps-shoe__favorite {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 70px;
     display: block;
     width: 35px;
     height: 35px;
@@ -2538,11 +2544,11 @@ textarea.form-control {
   .ps-shoe:hover:before {
     visibility: visible;
     opacity: 1;
-    -webkit-transform: scale(1, 1);
+    -webkit-transform: scale(1, 0.6);
     -moz-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     -o-transform: scale(1, 1);
-    transform: scale(1, 1); }
+    transform: scale(0.9, 0.9); }
   .ps-shoe:hover .ps-shoe__thumbnail {
     z-index: 10000; }
   .ps-shoe:hover .ps-shoe__content {
@@ -2622,12 +2628,13 @@ textarea.form-control {
 .ps-badge {
   display: inline-block;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 35px;
+  width: 50px;
+  top: 20px;
+  left: 15px;
+  opacity: 0.8;
+  height: 31px;
   z-index: 10;
-  background-color: #2AC37D; }
+  background-color: #2AC37D;}
   .ps-badge > span {
     position: absolute;
     top: 50%;
@@ -6175,7 +6182,7 @@ html .bg--parallax {
   margin-bottom: 25px; }
 
 .mb-30 {
-  margin-bottom: 30px; }
+  margin-bottom: 0px; }
 
 .mb-35 {
   margin-bottom: 35px; }
@@ -6460,7 +6467,8 @@ html .bg--parallax {
   padding-bottom: 75px; }
 
 .pb-80 {
-  padding-bottom: 80px; }
+  
+   }
 
 .pb-85 {
   padding-bottom: 85px; }

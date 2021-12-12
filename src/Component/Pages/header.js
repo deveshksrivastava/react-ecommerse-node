@@ -52,7 +52,7 @@ export default function Header() {
                       <div className="mega-wrap">
                         <div className="mega-column">
                           <ul className="mega-item mega-features">
-                            <li><Link to="product-listing.html">NEW RELEASES</Link ></li>
+                            <li><Link to="">NEW RELEASES</Link ></li>
                             <li><Link to="product-listing.html">FEATURES SHOES</Link ></li>
                             <li><Link to="product-listing.html">BEST SELLERS</Link ></li>
                             <li><Link to="product-listing.html">NOW TRENDING</Link ></li>
