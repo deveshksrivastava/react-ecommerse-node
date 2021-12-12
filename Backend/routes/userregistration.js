@@ -26,4 +26,19 @@ router.post("/insertdata", function (req, res, next) {
     );
   });
 
+  router.post('/chkadminlogin', function(req, res, next) {
+    pool.query("select * from userregistration where email=? and password=?",
+    [req.body.email,req.body.password],function(error,result){
+     if(error)
+     { res.status(500).json({result:false})}
+    else
+    {  if(result.length==1)
+         res.status(200).json({result:true})
+      else
+       res.status(200).json({result:false})
+    }
+  
+    })
+  });
+
   module.exports = router;
