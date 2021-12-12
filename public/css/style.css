@@ -2404,7 +2404,7 @@ textarea.form-control {
     margin: 20px;
   }
     .ps-shoe .ps-shoe__thumbnail img {
-      width: 60%;
+      width: 100%;
       border: groove; 
       height: 200px;
       }
