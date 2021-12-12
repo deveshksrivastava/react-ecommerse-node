@@ -75,6 +75,27 @@ const Home=(props)=> {
     slidesToScroll: 1,
   };
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red" }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green" }}
+        onClick={onClick}
+      />
+    );
+  }
   var itemsettings = {
     dots: false,
     infinite: true,
@@ -83,7 +104,9 @@ const Home=(props)=> {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: false,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
   };
 
   const fetchAllCategories = async () => {
@@ -473,10 +496,7 @@ const handleQtyChange=(value,item)=>{
                   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
                     <h3 class="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                    <div class="ps-owl-actions"><a class="ps-prev" href="#"><i class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="#">Next<i class="ps-icon-arrow-left"></i></a></div>
-                  </div>
-                  
+
             </div>
             
              <div style={{ display: "flex", flexDirection: "column" }}>
@@ -522,8 +542,7 @@ const handleQtyChange=(value,item)=>{
                                   </a>
                                   <Paper  elevation={3} className={classes.paperstyle}>
                                       <div style={{display:'flex',justifyContent:'center',padding: 'inherit'}} 
-                                        onClick={()=>handleConsoleList1(item.subcategoryid)}                                     
-                                    //  onClick={()=>props.history.push({"pathname":"/consolelist"},{'product':item})} 
+                                        onClick={()=>handleConsoleList1(item.subcategoryid)}                            
                                   >
                                         <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
                                     
@@ -608,15 +627,16 @@ const handleQtyChange=(value,item)=>{
           className="ps-home-testimonial bg--parallax pb-85"
           data-background="images/background/parallax.webp"
         >
+          <div style={{top:'-90px',position:'relative'}} >
           <div className="container">
             <Slider {...settings}>
               <div className="ps-testimonial">
-                <div className="ps-testimonial__thumbnail">
+                <div className="ps-testimonial__thumbnail" >
                   <img src="images/testimonial/6.png" alt="" />
-                  <i className="fa fa-quote-left"></i>
+                  <i className="fa fa-quote-left" ></i>
                 </div>
-                <header>
-                  <Box
+                <header >
+                  <Box 
                     sx={{
                       "& > legend": { mt: 2 },
                     }}
@@ -669,6 +689,7 @@ const handleQtyChange=(value,item)=>{
                 </footer>
               </div>
             </Slider>
+          </div>
           </div>
         </div>
       </div>
