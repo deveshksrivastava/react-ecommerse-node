@@ -114,7 +114,6 @@ const Home=(props)=> {
   };
 
   const handleConsoleList1 = (subcategoryid) => {
-
     props.history.push(
       { pathname: "/categoryview" },
       { subcategoryid: subcategoryid }
@@ -444,28 +443,6 @@ const handleQtyChange=(value,item)=>{
 
                             </Paper>
                           </div>
-                          {/* <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                              <div className="ps-badge">
-                                <span>New</span>
-                              </div>
-                              <div className="ps-badge ps-badge--sale ps-badge--2nd">
-                                <span>-35%</span>
-                              </div>
-                              <a class="ps-shoe__favorite" href="#">
-                                <i class="ps-icon-heart"></i>
-                              </a>
-                              <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
-
-                              <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{item.mobilename.length <= 20
-                                    ? item.mobilename.toUpperCase()
-                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}</a>
-                                <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ {item.price}</span>
-                              </div>
-                            </div>
-
-                          </div> */}
-
                         </div>
                       </div>
                     </div>
@@ -545,7 +522,8 @@ const handleQtyChange=(value,item)=>{
                                   </a>
                                   <Paper  elevation={3} className={classes.paperstyle}>
                                       <div style={{display:'flex',justifyContent:'center',padding: 'inherit'}} 
-                                      onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
+                                        onClick={()=>handleConsoleList1(item.subcategoryid)}                                     
+                                    //  onClick={()=>props.history.push({"pathname":"/consolelist"},{'product':item})} 
                                   >
                                         <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
                                     
@@ -556,19 +534,6 @@ const handleQtyChange=(value,item)=>{
                                           ? item.subcategoryname.toUpperCase()
                                           : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
                                       </div>
-                                      {/* <div style={{ fontSize: 16, padding: 10 }}>
-                                        Price<s>&#8377;{item.price}</s>{" "}
-                                        <span>
-                                          <b>&#8377; {item.price-item.offer}</b>
-                                        </span>
-                                      </div>
-                                      <div style={{ fontSize: 16, padding: 10 }}>
-                                        <span style={{ color: "green" }}>
-                                          <b>You save </b>
-                                        </span>
-                                        <b>&#8377; {item.offer}</b>
-                                      </div> */}
-
                                   </Paper>
                                 </div>
                                </div>
