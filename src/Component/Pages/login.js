@@ -1,8 +1,9 @@
-import NextLink from "next/link";
+import React,{useState} from 'react';
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {Link} from 'react-router-dom';
+import {postData} from "../Admin/FetchNodeService"
 import {
   Box,
   Button,
@@ -16,31 +17,24 @@ import Footer from './footer';
 /* import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
  */
-const Login = (props) => {
-  const router = useRouter();
-  const formik = useFormik({
-    initialValues: {
-      email: "my@gmail.com",
-      password: "P123",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Must be a valid email")
-        .max(255)
-        .required("Email is required"),
-      password: Yup.string().max(255).required("Password is required"),
-    }),
-    onSubmit: () => {
-     /*  router.push("/home"); */
-      props.history.push({ 'pathname': "/home" })
-    },
-  });
+export default function Login(props) {
 
+  const [email,setEmail]=useState()
+  const [password,setPassword]=useState()
+  const handleClick=async()=>{
+    var body={email:email,password:password}  
+    var result=await postData("userregistration/chkadminlogin",body)
+    if(result.result)
+    {props.history.replace({pathname:'/home'})}
+    else
+    {
+     alert("Invalid Login")
+
+    }
+
+   }
   return (
     <>
-      {/* <Head>
-        <title>Login | Material Kit</title>
-      </Head> */}
       <Box
         component="main"
         sx={{
@@ -59,38 +53,11 @@ const Login = (props) => {
               Back To Home
             </Button>
           </Link>
-          <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h4" style={{fontSize:"30px", textAlign:"center"}}>
                 Sign in
               </Typography>
             </Box>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={6}>
-                {/* <Button
-                  color="info"
-                  fullWidth
-                  startIcon={<FacebookIcon />}
-                  onClick={formik.handleSubmit}
-                  size="large"
-                  variant="contained"
-                >
-                  Login with Facebook
-                </Button> */}
-              </Grid>
-              <Grid item xs={12} md={6}>
-                {/* <Button
-                  fullWidth
-                  color="error"
-                  startIcon={<GoogleIcon />}
-                  onClick={formik.handleSubmit}
-                  size="large"
-                  variant="contained"
-                >
-                  Login with Google
-                </Button> */}
-              </Grid>
-            </Grid>
             <Box
               sx={{
                 pb: 1,
@@ -102,39 +69,34 @@ const Login = (props) => {
               </Typography>
             </Box>
             <TextField
-              error={Boolean(formik.touched.email && formik.errors.email)}
+             
               fullWidth
-              helperText={formik.touched.email && formik.errors.email}
               label="Email Address"
+              required
               margin="normal"
               name="email"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
               type="email"
-              value={formik.values.email}
               variant="outlined"
+              onChange={(event)=>setEmail(event.target.value)}
             />
             <TextField
-              error={Boolean(formik.touched.password && formik.errors.password)}
               fullWidth
-              helperText={formik.touched.password && formik.errors.password}
+              required
               label="Password"
               margin="normal"
               name="password"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
               type="password"
-              value={formik.values.password}
+              onChange={(event)=>setPassword(event.target.value)}
               variant="outlined"
             />
             <Box sx={{ py: 2 }}>
               <Button
                 color="primary"
-                disabled={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"
                 variant="contained"
+                onClick={()=>handleClick()}
               >
                 Sign In Now
               </Button>
@@ -144,13 +106,14 @@ const Login = (props) => {
                 <Link
                   to="/signup">
                   Sign Up
+                </Link><br/>
+                <Link to="/forgotpasswort" variant="body2">
+                 Click here Forgot password?
                 </Link>
             </Typography>
-          </form>
         </Container>
       </Box>
       <Footer />
     </>
   );
 };
-export default Login;
