@@ -21,7 +21,8 @@ import {useDispatch } from 'react-redux';
 import { useHistory,withRouter } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: 10,
+    padding: 0,
+    margin:10,
     display: "flex",
     flexDirection: "column",
   },
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     padding: 10,
     width: 220,
-    height: 360,
+    height: 350,
     margin: 5,
     borderRadius: 10,
     flexDirection: "column",
@@ -407,18 +408,16 @@ const handleQtyChange=(value,item)=>{
                     >
                       <div className="grid-item__content-wrapper">
                         <div className="ps-shoe mb-30">
-                          {/* <div className="ps-shoe__thumbnail">
+                          <div className="ps-shoe__thumbnail">
                             <div className="ps-badge">
                               <span>New</span>
                             </div>
-                            <div className="ps-badge ps-badge--sale ps-badge--2nd">
-                              <span>-35%</span>
-                            </div>
+
                             <a className="ps-shoe__favorite" href="#">
                               <i className="ps-icon-heart"></i>
                             </a>
                             <Paper  elevation={3} className={classes.paperstyle}>
-                                <div style={{alignSelf:'center'}} 
+                                <div style={{display:'flex',justifyContent:'center',padding: 'inherit'}} 
                                 onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
                             >
                                   <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
@@ -442,28 +441,10 @@ const handleQtyChange=(value,item)=>{
                                   </span>
                                   <b>&#8377; {item.offer}</b>
                                 </div>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                    {item.stock >= 1 ? (
-                                      <div style={{ margin: 20 }}>
-                                      <QtySpinner
-                                          value={0}
 
-                                        // onChange={(value) => handleQtyChange(value,item)}
-                                      />
-                                      </div>
-                                  ) : (
-                                      <></>
-                                  )}
-                                  </div>
                             </Paper>
-                          </div> */}
-                          <div class="ps-shoe">
+                          </div>
+                          {/* <div class="ps-shoe">
                             <div class="ps-shoe__thumbnail">
                               <div className="ps-badge">
                                 <span>New</span>
@@ -475,26 +456,15 @@ const handleQtyChange=(value,item)=>{
                                 <i class="ps-icon-heart"></i>
                               </a>
                               <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
-                              {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
-                            </div>
-                            <div class="ps-shoe__content">
-                              {/* <div class="ps-shoe__variants">
-                                <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select class="ps-rating ps-shoe__rating">
-                                  <option value="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="1">3</option>
-                                  <option value="1">4</option>
-                                  <option value="2">5</option>
-                                </select>
-                              </div> */}
+
                               <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{item.mobilename.length <= 20
                                     ? item.mobilename.toUpperCase()
                                     : item.mobilename.toUpperCase().substring(0, 18) + ".."}</a>
                                 <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ {item.price}</span>
                               </div>
                             </div>
-                          </div>
+
+                          </div> */}
 
                         </div>
                       </div>
