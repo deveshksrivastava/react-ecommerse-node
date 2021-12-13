@@ -25,7 +25,7 @@ export default function Login(props) {
     var body={email:email,password:password}  
     var result=await postData("userregistration/chkadminlogin",body)
     if(result.result)
-    {props.history.replace({pathname:'/home'})}
+    {props.history.replace({pathname:'/showcart'})}
     else
     {
      alert("Invalid Login")
