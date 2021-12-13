@@ -113,6 +113,7 @@ const Home=(props)=> {
       <div
         className={className}
         style={{ ...style, display: 'flex',background: 'black' }}
+
         onClick={onClick}
       />
     );
@@ -551,7 +552,6 @@ const handleQtyChange=(value,item)=>{
                   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
                     <h3 class="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
                   </div>
-                
             </div>
             
              <div style={{ display: "flex", flexDirection: "column" }}>
@@ -597,6 +597,7 @@ const handleQtyChange=(value,item)=>{
                                   </a>
                                   <Paper  elevation={3} className={classes.paperstyle}>
                                       <div style={{display:'flex',justifyContent:'center'}} 
+
                                         onClick={()=>handleConsoleList1(item.subcategoryid)}                            
                                   >
                                         <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
