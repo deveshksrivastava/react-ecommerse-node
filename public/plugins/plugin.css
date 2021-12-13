@@ -47,7 +47,7 @@
 .slick-slider
 {
     position: relative;
-
+    top: 0px;
     display: block;
     box-sizing: border-box;
 

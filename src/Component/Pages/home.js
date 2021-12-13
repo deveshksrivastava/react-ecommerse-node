@@ -21,7 +21,8 @@ import {useDispatch } from 'react-redux';
 import { useHistory,withRouter } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: 10,
+    padding: 0,
+    margin:10,
     display: "flex",
     flexDirection: "column",
   },
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     padding: 10,
     width: 220,
-    height: 360,
+    height:'auto',
     margin: 5,
     borderRadius: 10,
     flexDirection: "column",
@@ -69,11 +70,65 @@ const Home=(props)=> {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
   };
 
+  var settingbanner = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <SampleNextA />,
+    prevArrow: <SamplePrevA />
+  };
+  function SampleNextA(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black', }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevA(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black' }}
+        onClick={onClick}
+      />
+    );
+  }  
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black' }}
+
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black' }}
+        onClick={onClick}
+      />
+    );
+  }
   var itemsettings = {
     dots: false,
     infinite: true,
@@ -82,9 +137,21 @@ const Home=(props)=> {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: false,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
   };
 
+  const showSlider = () => {
+    return listCategory.map((item) => {
+      return (
+        <div>
+          <img src={`${ServerURL}/images/${item.ad}`} alt="FNF" width="100%" />
+        </div>
+      );
+    });
+   
+  };
   const fetchAllCategories = async () => {
     var list = await getData("categories/displayall");
 
@@ -113,7 +180,6 @@ const Home=(props)=> {
   };
 
   const handleConsoleList1 = (subcategoryid) => {
-
     props.history.push(
       { pathname: "/categoryview" },
       { subcategoryid: subcategoryid }
@@ -171,94 +237,27 @@ const handleQtyChange=(value,item)=>{
   const showOffers = () => {
     return listSubOffers.map((item) => {
       return (
-        // <div>
-        //   <div
-        //     style={{
-        //       //border: "1px solid #ecf0f1",
-        //       width: 200,
-        //       justifyContent: "center",
-        //       alignItems: "center",
-        //       display: "flex",
-        //       flexDirection: "column",
-        //       padding: 10,
-        //       margin: 5,
-        //     }}
-        //     onClick={() => handleConsoleList1(item.subcategoryid)}
-           
-        //     >
-        //     <Paper elevation={3}>
-        //       <div>
-        //         <img
-        //           src={`${ServerURL}/images/${item.icon}`}
-        //           alt="FNF"
-        //           width="auto"
-        //           height="160px"
-        //         />
-        //       </div>
-        //       <div
-        //         style={{
-        //           fontSize: "2rem",
-        //           fontWeight: "300",
-        //           padding: 10,
-        //           textAlign: "center",
-        //         }}
-        //       >
-        //         {item.subcategoryname.length <= 20
-        //           ? item.subcategoryname.toUpperCase()
-        //           : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
-        //       </div>
-        //       {/*     <div style={{ fontSize: 16, padding: 10 }}>
-        //         Price<s>&#8377;{item.price}</s>{" "}
-        //         <span>
-        //           <b>&#8377; {item.price-item.offer}</b>
-        //         </span>
-        //       </div>
-        //       <div style={{ fontSize: 16, padding: 10 }}>
-        //         <span style={{ color: "green" }}>
-        //           <b>You save </b>
-        //         </span>
-        //         <b>&#8377; {item.offer}</b>
-        //       </div> 
-        //   */}{" "}
-        //     </Paper>
-        //   </div>
-        // </div>
-
-      <div class="ps-shoe">
-      <div class="ps-shoe__thumbnail">
-        <div className="ps-badge">
-          <span>New</span>
-        </div>
-        <div className="ps-badge ps-badge--sale ps-badge--2nd">
-          <span>-35%</span>
-        </div>
-        <a class="ps-shoe__favorite" href="#">
-          <i class="ps-icon-heart"></i>
-        </a>
-        <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
-        {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
-      </div>
-      <div class="ps-shoe__content">
-        {/* <div class="ps-shoe__variants">
-          <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-          <select class="ps-rating ps-shoe__rating">
-            <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
-            <option value="1">4</option>
-            <option value="2">5</option>
-          </select>
-        </div> */}
-        <div class="ps-shoe__detail">
-          <a class="ps-shoe__name" href="product-detai.html">
-                {item.subcategoryname.length <= 20
-                   ? item.subcategoryname.toUpperCase()
-                   : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
-          </a>
-          <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
-        </div>
-      </div>
-      </div>
+          <div class="ps-shoe">
+          <div class="ps-shoe__thumbnail">
+            <div className="ps-badge">
+              <span>New</span>
+            </div>
+            <div className="ps-badge ps-badge--sale ps-badge--2nd">
+              <span>-35%</span>
+            </div>
+            <a class="ps-shoe__favorite" href="#">
+              <i class="ps-icon-heart"></i>
+            </a>
+            <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='180px' onClick={() => handleConsoleList1(item.subcategoryid)}/>
+            <a class="ps-shoe__name" href="#">
+                    {item.subcategoryname.length <= 20
+                      ? item.subcategoryname.toUpperCase()
+                      : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
+              </a>
+              <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £{item.price}</span>
+          </div>
+        
+          </div>
       );
     });
   };
@@ -276,7 +275,7 @@ const handleQtyChange=(value,item)=>{
       <Header />
       <div className="ps-main">
         <div className="container">
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             <li
               className="ps-banner"
               data-index="rs-2972"
@@ -329,7 +328,20 @@ const handleQtyChange=(value,item)=>{
                 data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'
               ></div>
             </li>
+          </Slider> */}
+          <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ width: "100%" }}>
+          <Slider {...settingbanner}>
+            {showSlider()}
           </Slider>
+        </div>
+      </div>
         </div>
         {/* <div style={{ display: "flex", flexDirection: "column" }}>
           <div
@@ -474,18 +486,16 @@ const handleQtyChange=(value,item)=>{
                     >
                       <div className="grid-item__content-wrapper">
                         <div className="ps-shoe mb-30">
-                          {/* <div className="ps-shoe__thumbnail">
+                          <div className="ps-shoe__thumbnail">
                             <div className="ps-badge">
                               <span>New</span>
                             </div>
-                            <div className="ps-badge ps-badge--sale ps-badge--2nd">
-                              <span>-35%</span>
-                            </div>
+
                             <a className="ps-shoe__favorite" href="#">
                               <i className="ps-icon-heart"></i>
                             </a>
                             <Paper  elevation={3} className={classes.paperstyle}>
-                                <div style={{alignSelf:'center'}} 
+                                <div style={{display:'flex',justifyContent:'center'}} 
                                 onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
                             >
                                   <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
@@ -493,9 +503,9 @@ const handleQtyChange=(value,item)=>{
                                 </div>
                                 
                                 <div style={{ fontSize: 14, fontWeight: "bold", padding: 10 }}>
-                                  {item.mobilename.length <= 20
+                                  {item.mobilename.length <= 15
                                     ? item.mobilename.toUpperCase()
-                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}
+                                    : item.mobilename.toUpperCase().substring(0, 15) + ".."}
                                 </div>
                                 <div style={{ fontSize: 16, padding: 10 }}>
                                   Price<s>&#8377;{item.price}</s>{" "}
@@ -509,60 +519,9 @@ const handleQtyChange=(value,item)=>{
                                   </span>
                                   <b>&#8377; {item.offer}</b>
                                 </div>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                    {item.stock >= 1 ? (
-                                      <div style={{ margin: 20 }}>
-                                      <QtySpinner
-                                          value={0}
 
-                                        // onChange={(value) => handleQtyChange(value,item)}
-                                      />
-                                      </div>
-                                  ) : (
-                                      <></>
-                                  )}
-                                  </div>
                             </Paper>
-                          </div> */}
-                          <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                              <div className="ps-badge">
-                                <span>New</span>
-                              </div>
-                              <div className="ps-badge ps-badge--sale ps-badge--2nd">
-                                <span>-35%</span>
-                              </div>
-                              <a class="ps-shoe__favorite" href="#">
-                                <i class="ps-icon-heart"></i>
-                              </a>
-                              <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px' onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})}/>
-                              {/* <a class="ps-shoe__overlay" href="product-detail.html"></a> */}
-                            </div>
-                            <div class="ps-shoe__content">
-                              {/* <div class="ps-shoe__variants">
-                                <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""/><img src="images/shoe/3.jpg" alt=""/><img src="images/shoe/4.jpg" alt=""/><img src="images/shoe/5.jpg" alt=""/></div>
-                                <select class="ps-rating ps-shoe__rating">
-                                  <option value="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="1">3</option>
-                                  <option value="1">4</option>
-                                  <option value="2">5</option>
-                                </select>
-                              </div> */}
-                              <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{item.mobilename.length <= 20
-                                    ? item.mobilename.toUpperCase()
-                                    : item.mobilename.toUpperCase().substring(0, 18) + ".."}</a>
-                                <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £ {item.price}</span>
-                              </div>
-                            </div>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -593,13 +552,92 @@ const handleQtyChange=(value,item)=>{
                   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
                     <h3 class="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                    <div class="ps-owl-actions"><a class="ps-prev" href="#"><i class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="#">Next<i class="ps-icon-arrow-left"></i></a></div>
-                  </div>
             </div>
+            
+             <div style={{ display: "flex", flexDirection: "column" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      left: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowBackIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton> */}
+                  <div style={{ width: "100%",margin:'inherit' }}>
+                    <Slider {...itemsettings}> 
+                          {listSubOffers.map((item, index) => {
+                        return (
+                          <div
+                            className="grid-item kids"
+                            // style={{ padding: "5px", display: "flex" }}
+                          >
+                            <div className="grid-item__content-wrapper">
+                              <div className="ps-shoe mb-30">
+                                <div class="ps-shoe">
+                                <div className="ps-shoe__thumbnail">
+                                  <div className="ps-badge">
+                                    <span>New</span>
+                                  </div>
+
+                                  <a className="ps-shoe__favorite" href="#">
+                                    <i className="ps-icon-heart"></i>
+                                  </a>
+                                  <Paper  elevation={3} className={classes.paperstyle}>
+                                      <div style={{display:'flex',justifyContent:'center'}} 
+
+                                        onClick={()=>handleConsoleList1(item.subcategoryid)}                            
+                                  >
+                                        <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
+                                    
+                                      </div>
+                                      
+                                      <div style={{ fontSize: 14, fontWeight: "bold", padding: 10,textAlign:'center' }}>
+                                        {item.subcategoryname.length <= 20
+                                          ? item.subcategoryname.toUpperCase()
+                                          : item.subcategoryname.toUpperCase().substring(0, 18) + ".."}
+                                      </div>
+                                  </Paper>
+                                </div>
+                               </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </Slider>
+                  </div>
+                   {/* <IconButton
+                    style={{
+                      background: "#1e6b7b",
+                      position: "absolute",
+                      zIndex: 1,
+                      right: 5,
+                      opacity: 0.8,
+                    }}
+                  >
+                    <ArrowForwardIosIcon
+                      style={{ color: "#FFF", fontSize: "large" }}
+                    />
+                  </IconButton>  */}
+                </div>
+              </div> 
           </div>
           {/* {listMobiles.map((item, index) => {
                               return ( 
+                                
           <Slider {...settings}> 
           <div className="ps-shoe">
                             <div className="ps-shoe__thumbnail">
@@ -634,72 +672,8 @@ const handleQtyChange=(value,item)=>{
                             </div>
                       </div>
                </Slider>
-                              )})}; */}
-        <div className="ps-container">
-          <div className="ps-section__header mb-50">
-            {/* <h3 className="ps-section__title" data-mask="features">
-              - Features Products
-            </h3> */}
-            <div>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {/* <div
-                  style={{
-                    fontSize: 30,
-                    color: "#636e72",
-                    fontWeight: "normal",
-                    display: "flex",
-                    letterSpacing: "3.9px",
-                    fontFamily: 'Georgia,Times,"Times New Roman",serif',
-                    justifyContent: "center",
-                    padding: 10,
-                  }}
-                >
-                  TOP OFFERS CONSOLE
-                </div> */}
-                {/* <Divider style={{ marginTop: 5, marginBottom: 5 }} /> */}
-
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <IconButton
-                    style={{
-                      background: "#1e6b7b",
-                      position: "absolute",
-                      zIndex: 1,
-                      left: 5,
-                      opacity: 0.8,
-                    }}
-                  >
-                    <ArrowBackIosIcon
-                      style={{ color: "#FFF", fontSize: "large" }}
-                    />
-                  </IconButton>
-                  <div style={{ width: "98%" }}>
-                    <Slider {...itemsettings}> {showOffers()}</Slider>
-                  </div>
-                  <IconButton
-                    style={{
-                      background: "#1e6b7b",
-                      position: "absolute",
-                      zIndex: 1,
-                      right: 5,
-                      opacity: 0.8,
-                    }}
-                  >
-                    <ArrowForwardIosIcon
-                      style={{ color: "#FFF", fontSize: "large" }}
-                    />
-                  </IconButton>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            )})}; */}
+        
         </div>
 
       </div>
@@ -709,15 +683,16 @@ const handleQtyChange=(value,item)=>{
           className="ps-home-testimonial bg--parallax pb-85"
           data-background="images/background/parallax.webp"
         >
+          <div style={{top:'-90px',position:'relative'}} >
           <div className="container">
             <Slider {...settings}>
               <div className="ps-testimonial">
-                <div className="ps-testimonial__thumbnail">
+                <div className="ps-testimonial__thumbnail" >
                   <img src="images/testimonial/6.png" alt="" />
-                  <i className="fa fa-quote-left"></i>
+                  <i className="fa fa-quote-left" ></i>
                 </div>
-                <header>
-                  <Box
+                <header >
+                  <Box 
                     sx={{
                       "& > legend": { mt: 2 },
                     }}
@@ -770,6 +745,7 @@ const handleQtyChange=(value,item)=>{
                 </footer>
               </div>
             </Slider>
+          </div>
           </div>
         </div>
       </div>

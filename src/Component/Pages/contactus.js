@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './header'
+import Footer from './footer'
+import Subscribe from './subscribe'
 export default function ContactUs() {
     return (
         <div>
@@ -118,6 +120,8 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+      <Subscribe />
+      <Footer />
       </div>
     )
 }
