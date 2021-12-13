@@ -41,4 +41,24 @@ router.post("/insertdata", function (req, res, next) {
     })
   });
 
+  router.post('/chkuserbymobileno', function(req, res, next) {
+    pool.query("select * from userregistration where email=?",[req.body.email],function(error,result){
+     if(error)
+     {
+       return res.status(500).json({result:false})
+   
+     }
+     else
+     {
+      if(result.length==0)
+      { return res.status(200).json({result:false})}
+      else
+      { return res.status(200).json({result:true,data:result[0]})}
+   
+     }
+   
+    })   
+    
+   });
+
   module.exports = router;

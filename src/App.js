@@ -10,8 +10,9 @@ import ConsoleList from './Component/Pages/consolelist'
 import Login from './Component/Pages/login';
 import CategoryView from './Component/Pages/categoryview';
 import SignUp from './Component/Pages/signup';
-import Forgot from "./Component/Pages/forgotpasswort"
-import ShowCart from './Component/Pages/showcart'
+import Forgot from "./Component/Pages/forgotpasswort";
+import ShowCart from './Component/Pages/showcart';
+import MakePayment from './Component/Pages/makepayment';
 function App(props) {
   return (
     <div>
@@ -30,6 +31,7 @@ function App(props) {
       <Route   path="/signup" exact  component={SignUp} history={props.history}/>
       <Route   path="/forgotpasswort" exact  component={Forgot} history={props.history}/>
       <Route   path="/showcart" exact  component={ShowCart} history={props.history}/>
+      <Route   path="/makepayment" exact  component={MakePayment} history={props.history}/>
       <Route component={PageNotFound } />
       </Switch>  
     </Router>
