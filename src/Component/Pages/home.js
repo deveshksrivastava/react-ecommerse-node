@@ -275,7 +275,7 @@ const handleQtyChange=(value,item)=>{
       <Header />
       <div className="ps-main">
         <div className="container">
-          {/* <Slider {...settings}>
+          <Slider {...settingbanner}>
             <li
               className="ps-banner"
               data-index="rs-2972"
@@ -328,8 +328,8 @@ const handleQtyChange=(value,item)=>{
                 data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'
               ></div>
             </li>
-          </Slider> */}
-          <div
+          </Slider>
+          {/* <div
         style={{
           display: "flex",
           alignItems: "center",
@@ -341,7 +341,7 @@ const handleQtyChange=(value,item)=>{
             {showSlider()}
           </Slider>
         </div>
-      </div>
+      </div> */}
         </div>
 
         <div className="ps-section--features-product ps-section masonry-root pt-100 pb-100">
@@ -449,13 +449,13 @@ const handleQtyChange=(value,item)=>{
 
         <div className="ps-section--offer">
           <div className="ps-column">
-            <a className="ps-offer" href="product-listing.html">
-              <img src="images/banner/home-banner-1.png" alt="" />
+            <a className="ps-offer" href="#">
+              <img src="images/banner/banner1.png" alt="" />
             </a>
           </div>
           <div className="ps-column">
             <a className="ps-offer" href="product-listing.html">
-              <img src="images/banner/home-banner-2.png" alt="" />
+              <img src="images/banner/banner2.png" alt="" />
             </a>
           </div>
         </div>
@@ -592,11 +592,11 @@ const handleQtyChange=(value,item)=>{
         </div>
 
       </div>
-        <hr />
+
 
         <div
           className="ps-home-testimonial bg--parallax pb-85"
-          data-background="images/background/parallax.webp"
+          data-background="images/background/parallax.jpg"
         >
           <div style={{top:'-90px',position:'relative'}} >
           <div className="container">
