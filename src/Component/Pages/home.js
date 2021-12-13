@@ -70,17 +70,50 @@ const Home=(props)=> {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
   };
 
+  var settingbanner = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <SampleNextA />,
+    prevArrow: <SamplePrevA />
+  };
+  function SampleNextA(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black', }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevA(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: 'flex',background: 'black' }}
+        onClick={onClick}
+      />
+    );
+  }  
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "red" }}
+        style={{ ...style, display: 'flex',background: 'black' }}
+
         onClick={onClick}
       />
     );
@@ -91,7 +124,7 @@ const Home=(props)=> {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "green" }}
+        style={{ ...style, display: 'flex',background: 'black' }}
         onClick={onClick}
       />
     );
@@ -109,6 +142,16 @@ const Home=(props)=> {
     prevArrow: <SamplePrevArrow />
   };
 
+  const showSlider = () => {
+    return listCategory.map((item) => {
+      return (
+        <div>
+          <img src={`${ServerURL}/images/${item.ad}`} alt="FNF" width="100%" />
+        </div>
+      );
+    });
+   
+  };
   const fetchAllCategories = async () => {
     var list = await getData("categories/displayall");
 
@@ -232,7 +275,7 @@ const handleQtyChange=(value,item)=>{
       <Header />
       <div className="ps-main">
         <div className="container">
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             <li
               className="ps-banner"
               data-index="rs-2972"
@@ -285,7 +328,20 @@ const handleQtyChange=(value,item)=>{
                 data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'
               ></div>
             </li>
+          </Slider> */}
+          <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ width: "100%" }}>
+          <Slider {...settingbanner}>
+            {showSlider()}
           </Slider>
+        </div>
+      </div>
         </div>
         {/* <div style={{ display: "flex", flexDirection: "column" }}>
           <div
@@ -439,7 +495,7 @@ const handleQtyChange=(value,item)=>{
                               <i className="ps-icon-heart"></i>
                             </a>
                             <Paper  elevation={3} className={classes.paperstyle}>
-                                <div style={{display:'flex',justifyContent:'center',padding: 'inherit'}} 
+                                <div style={{display:'flex',justifyContent:'center'}} 
                                 onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
                             >
                                   <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
@@ -496,7 +552,6 @@ const handleQtyChange=(value,item)=>{
                   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
                     <h3 class="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
                   </div>
-
             </div>
             
              <div style={{ display: "flex", flexDirection: "column" }}>
@@ -541,7 +596,8 @@ const handleQtyChange=(value,item)=>{
                                     <i className="ps-icon-heart"></i>
                                   </a>
                                   <Paper  elevation={3} className={classes.paperstyle}>
-                                      <div style={{display:'flex',justifyContent:'center',padding: 'inherit'}} 
+                                      <div style={{display:'flex',justifyContent:'center'}} 
+
                                         onClick={()=>handleConsoleList1(item.subcategoryid)}                            
                                   >
                                         <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
