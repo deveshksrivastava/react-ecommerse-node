@@ -134,9 +134,9 @@ export default function MakePayment(props) {
       city: city,
       state: states,
       zipcode: zipcode,
-      mobileno: user.mobileno,
+      email: user.email,
     };
-    var result = await postData("userdetails/updateuserdetails", body);
+    var result = await postData("userregistration/updateuserdetails", body);
 
     // console.log(result.result);
     if (result.result) {
@@ -144,7 +144,7 @@ export default function MakePayment(props) {
       if (res.result) {
         dispatch({
           type: "ADD_CLIENT",
-          payload: [res.data.mobileno, res.data],
+          payload: [res.data.email, res.data],
         });
         setStatus(!status);
       }
@@ -407,10 +407,10 @@ export default function MakePayment(props) {
                       <h3>Delivery Address</h3>
                     </div>
                     <div style={{ fontSize: 18, fontWeight: "bolt" }}>
-                      {user.fname} {user.lname}
+                      {/* {user.fname} {user.lname} */}
                     </div>
                     <div>
-                      {!user.addressstatus ? (
+                      {{/* !user.addressstatus ? (
                         <Button
                           style={{
                             fontSize: 14,
@@ -424,7 +424,7 @@ export default function MakePayment(props) {
                         >
                           Add Address
                         </Button>
-                      ) : (
+                      ) */}  (
                         <div
                           style={{ display: "flex", flexDirection: "column" }}
                         >
