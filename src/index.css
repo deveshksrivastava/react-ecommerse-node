@@ -12,8 +12,9 @@ code {
     monospace;
 }
 .container {
-  width: auto;
+  width: 100%;
   padding: 30px;
+  background: rgb(16 15 19 / 66%);;
 
 }
 
