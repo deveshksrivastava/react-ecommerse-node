@@ -20,6 +20,7 @@ import {  makeStyles } from "@material-ui/core/styles";
 import {useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useHistory,withRouter } from 'react-router-dom'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
@@ -68,14 +69,14 @@ const Home=(props)=> {
   const classes = useStyles();
   var dispatch=useDispatch()
   const history= useHistory();
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+  // var settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 2000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  // };
 
   var settingbanner = {
     dots: true,
@@ -130,19 +131,45 @@ const Home=(props)=> {
       />
     );
   }
-  var itemsettings = {
+
+  var settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+        autoplay: true,
     autoplaySpeed: 2000,
-    arrows: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    initialSlide: 0,
+    nextArrow: <SampleNextA />,
+    prevArrow: <SamplePrevA />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
-
   const showSlider = () => {
     return listCategory.map((item) => {
       return (
@@ -517,7 +544,7 @@ const handleQtyChange=(value,item)=>{
                     />
                   </IconButton> */}
                   <div style={{ width: "100%",margin:'inherit' }}>
-                    <Slider {...itemsettings}> 
+                    <Slider {...settings}> 
                           {listSubOffers.map((item, index) => {
                         return (
                           <div
@@ -575,6 +602,7 @@ const handleQtyChange=(value,item)=>{
                 </div>
               </div> 
           </div>
+
           {/* {listMobiles.map((item, index) => {
                               return ( 
                                 
@@ -698,6 +726,7 @@ const handleQtyChange=(value,item)=>{
           </div>
         </div>
       </div>
+
         {/* <div
           className="ps-home-testimonial bg--parallax pb-85"
           data-background="images/background/parallax.jpg"
@@ -777,3 +806,4 @@ const handleQtyChange=(value,item)=>{
   );
 }
 export default withRouter(Home);
+// export default responsive (Home);
