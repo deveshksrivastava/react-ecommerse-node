@@ -46,9 +46,10 @@ router.post("/chkuserbymobileno", function (req, res, next) {
     [req.body.email],
     function (error, result) {
       if (error) {
+        console.log(error)
         return res.status(500).json({ result: false });
       } else {
-        if (result.length == 0) {
+        if (result.length === 0) {
           return res.status(200).json({ result: false });
         } else {
           return res.status(200).json({ result: true, data: result[0] });

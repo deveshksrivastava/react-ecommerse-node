@@ -18,7 +18,9 @@ import QtySpinner from "./qtySpinner";
 import { getData, ServerURL } from "../Admin/FetchNodeService";
 import {  makeStyles } from "@material-ui/core/styles";
 import {useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { useHistory,withRouter } from 'react-router-dom'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
@@ -67,14 +69,14 @@ const Home=(props)=> {
   const classes = useStyles();
   var dispatch=useDispatch()
   const history= useHistory();
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+  // var settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 2000,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  // };
 
   var settingbanner = {
     dots: true,
@@ -129,19 +131,45 @@ const Home=(props)=> {
       />
     );
   }
-  var itemsettings = {
+
+  var settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+        autoplay: true,
     autoplaySpeed: 2000,
-    arrows: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    initialSlide: 0,
+    nextArrow: <SampleNextA />,
+    prevArrow: <SamplePrevA />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
-
   const showSlider = () => {
     return listCategory.map((item) => {
       return (
@@ -287,7 +315,7 @@ const handleQtyChange=(value,item)=>{
             >
               <img
                 className="rev-slidebg"
-                src="images/slider/5.jpg"
+                src="images/banner/b5.jpg"
                 alt=""
                 data-bgposition="center center"
                 data-bgfit="cover"
@@ -295,10 +323,12 @@ const handleQtyChange=(value,item)=>{
                 data-bgparallax="5"
                 data-no-retina
               />
+
             </li>
+
             <li
-              className="ps-banner ps-banner--white"
-              data-index="rs-100"
+              className="ps-banner"
+              data-index="rs-2972"
               data-transition="random"
               data-slotamount="default"
               data-hideafterloop="0"
@@ -307,7 +337,7 @@ const handleQtyChange=(value,item)=>{
             >
               <img
                 className="rev-slidebg"
-                src="images/slider/6.jpg"
+                src="images/banner/b3.png"
                 alt=""
                 data-bgposition="center center"
                 data-bgfit="cover"
@@ -315,7 +345,29 @@ const handleQtyChange=(value,item)=>{
                 data-bgparallax="5"
                 data-no-retina
               />
-              <div
+            </li>
+
+              <img
+                className="rev-slidebg"
+                src="images/banner/b6.jpg"
+                alt=""
+                data-bgposition="center center"
+                data-bgfit="cover"
+                data-bgrepeat="no-repeat"
+                data-bgparallax="5"
+                data-no-retina
+              />
+            {/* <li
+              className="ps-banner ps-banner--white"
+              data-index="rs-100"
+              data-transition="random"
+              data-slotamount="default"
+              data-hideafterloop="0"
+              data-hideslideonmobile="off"
+              data-rotate="0"
+            > */}
+
+              {/* <div
                 className="tp-caption ps-banner__header"
                 id="layer20"
                 data-x="left"
@@ -326,8 +378,8 @@ const handleQtyChange=(value,item)=>{
                 data-type="text"
                 data-responsive_offset="on"
                 data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'
-              ></div>
-            </li>
+              ></div> */}
+            {/* </li> */}
           </Slider>
           {/* <div
         style={{
@@ -492,7 +544,7 @@ const handleQtyChange=(value,item)=>{
                     />
                   </IconButton> */}
                   <div style={{ width: "100%",margin:'inherit' }}>
-                    <Slider {...itemsettings}> 
+                    <Slider {...settings}> 
                           {listSubOffers.map((item, index) => {
                         return (
                           <div
@@ -550,6 +602,7 @@ const handleQtyChange=(value,item)=>{
                 </div>
               </div> 
           </div>
+
           {/* {listMobiles.map((item, index) => {
                               return ( 
                                 
@@ -593,8 +646,88 @@ const handleQtyChange=(value,item)=>{
 
       </div>
 
+      <div style={{background: 'url(../images/banner/banner2.png) no-repeat center',
+        'background-size': 'cover',
+       backgroundAttachment:'fixed',
+        '-webkit-background-size':' cover',
+        '-o-background-size': 'cover',
+        '-moz-background-size': 'cover',
+        '-ms-background-size': 'cover',
+        'position': 'relative',
+        'z-index': 1}}>
+        <div className="container pt-lg-2 pb-lg-4 py-4">
+          <div className="welcome-left text-center py-lg-4">
+            <div style={{'margin-bottom': '35px',position: 'relative',top:-92, 'max-width': '120px',display: 'inline-block','border-radius': '50%',border:' 2px solid #fff'}} >
+                  <img src="images/testimonial/6.png" alt="" />
+                  <i className="fa fa-quote-left" style={{
+                  'display': 'inline-block',
+                  'position':' absolute',
+                  width: '35px',
+                  height: '35px',
+                  bottom: 0,
+                  right: 0,
+                  'background-color': '#2AC37D',
+                  '-webkit-border-radius': '50%',
+                  '-moz-border-radius': '50%',
+                  '-ms-border-radius': '50%',
+                  'border-radius': '50%',
+                  'border': '2px solid #fff'
+                  }}></i>
+            </div>
+            <h2 style={{color:'white'}}>Logan May - CEO & Founder Invision</h2>
+            <h3 className="hny-title">
+            <header >
+                  <Box 
+                    sx={{
+                      "& > legend": { mt: 2 },
+                    }}
+                  >
+                    <Rating
+                      name="simple-controlled"
+                      value={value}
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                    />
+                  </Box>
+                  {/* <h2>Logan May - CEO & Founder Invision</h2> */}
+ 
+                </header>
+                <footer>
+                  <p style={{'font-size': '24px','font-style': 'italic','line-height': '1.88em',color: '#fff'}}>
+                    “Dessert pudding dessert jelly beans cupcake sweet caramels
+                    gingerbread. Fruitcake biscuit cheesecake. Cookie topping
+                    sweet muffin pudding tart bear claw sugar plum croissant. “
+                  </p>
+                </footer>
+            </h3>
+            <div className="middle-buttons pb-5">
+              <NavLink
+                to="/about"
+                className="btn btn-style btn-white mt-sm-5 mt-4 mr-2"
+              >
+                Read More{' '}
+                <span
+                  className="fa fa-chevron-right ml-2"
+                  aria-hidden="true"
+                ></span>
+              </NavLink>
+              <NavLink
+                to="/contact-us"
+                className="btn btn-style btn-primary mt-sm-5 mt-4"
+              >
+                Contact Us{' '}
+                <span
+                  className="fa fa-chevron-right ml-2"
+                  aria-hidden="true"
+                ></span>
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div
+        {/* <div
           className="ps-home-testimonial bg--parallax pb-85"
           data-background="images/background/parallax.jpg"
         >
@@ -662,7 +795,7 @@ const handleQtyChange=(value,item)=>{
             </Slider>
           </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <PsContainer />
@@ -673,3 +806,4 @@ const handleQtyChange=(value,item)=>{
   );
 }
 export default withRouter(Home);
+// export default responsive (Home);

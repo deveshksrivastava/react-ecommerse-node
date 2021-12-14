@@ -6343,7 +6343,7 @@ html .bg--parallax {
   padding-top: 75px; }
 
 .pt-80 {
-  padding-top: 80px; }
+  padding-top: 8px; }
 
 .pt-85 {
   padding-top: 85px; }
@@ -6355,7 +6355,7 @@ html .bg--parallax {
   padding-top: 95px; }
 
 .pt-100 {
-  padding-top: 100px; }
+  padding-top: 0px; }
 
 .pr-0 {
   padding-right: 0px; }
@@ -6482,7 +6482,7 @@ html .bg--parallax {
   padding-bottom: 95px; }
 
 .pb-100 {
-  padding-bottom: 100px; }
+  padding-bottom: 0px; }
 
 .pl-0 {
   padding-left: 0px; }
