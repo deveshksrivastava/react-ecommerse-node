@@ -192,9 +192,9 @@ export default function CategoryView(props) {
               </ul>
             </div>
           </div>
-          <div class="ps-product__columns">
+          {/* <div class="ps-product__columns">
              <div class="ps-product__column">
-              <div class="ps-shoe mb-30">
+              <div class="ps-shoe mb-30"> */}
                {/* <div class="ps-shoe__thumbnail">
                   <div class="ps-badge"><span>New</span></div>
                   <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img src="images/shoe/1.jpg" alt="" /><a class="ps-shoe__overlay" href="product-detail.html"></a>
@@ -228,9 +228,9 @@ export default function CategoryView(props) {
               >
                 {showConsole()}
               </div>
+            {/* </div>
             </div>
-            </div>
-          </div>
+          </div> */}
           <div class="ps-product-action">
             <div class="ps-product__filter">
               <select class="ps-select selectpicker">
