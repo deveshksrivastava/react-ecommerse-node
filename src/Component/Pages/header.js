@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Login from "./login";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -231,7 +230,7 @@ export default function Header(props) {
             variant="contained"
             style={{ background: "#1e6b7b", color: "#FFF", width: 330 }}
             onClick={() => {
-              props.history.push({ pathname: "/login" });
+              props.history.push({ pathname: "/signin" });
             }}
           >
             Proceed
@@ -418,7 +417,7 @@ export default function Header(props) {
               </div>
               <div className="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                 <div className="header__actions">
-                  <Link to="/login">Login & Regiser</Link>
+                  <Link to="/signin">Login & Regiser</Link>
                   <div className="btn-group ps-dropdown">
                     <Link
                       className="dropdown-toggle"
@@ -714,7 +713,7 @@ export default function Header(props) {
                   onClick={toggleDrawer("right", true)}
                   aria-label="show cart notifications"
                   color="inherit"
-                  style={{ backgroundColor: "black" }}
+                  style={{ backgroundColor: "#74c349" }}
                 >
                   <Badge badgeContent={keys.length} color="secondary">
                     <ShoppingBasketOutlined />

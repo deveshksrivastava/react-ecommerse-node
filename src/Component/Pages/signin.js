@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import Header from "./Header";
+import Header from "./header";
 import Grid from "@material-ui/core/Grid";
 
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import clsx from "clsx";
-import { ServerURL,postData } from "../FetchNodeService";
-import { isEmpty, isMobile } from "../../Component/Checks";
-import Footer from "./Footer";
+import { ServerURL,postData } from "../Admin/FetchNodeService";
+import { isEmpty, isMobile } from "../Admin/Checks";
+import Footer from "./footer";
 import { useDispatch } from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
@@ -78,7 +78,7 @@ export default function SignIn(props) {
   var dispatch = useDispatch();
   const handleVerify = () => {
    
-    if (otp === gotp) props.history.push({ pathname: "/showcart" });
+    if (otp === gotp) props.history.push({ pathname: "/home" });
     else alert("Invalid Otp....");
   };
   const handleCheckUserMobileNumber = async () => {
@@ -112,7 +112,7 @@ export default function SignIn(props) {
         });
         setStatus(true);
       } else {
-        props.history.push({ pathname: "/signup" }, { mobileno: mobileno });
+        props.history.push({ pathname: "/registration" }, { mobileno: mobileno });
       }
     }
   };

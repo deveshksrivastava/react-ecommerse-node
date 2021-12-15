@@ -3,14 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { Divider, TextField } from "@material-ui/core";
 import DeleteOutline from "@material-ui/icons/DeleteOutline";
-import { ServerURL, postData } from "../Admin/FetchNodeService";
+import { ServerURL,postData } from "../Admin/FetchNodeService";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Header from "./header";
 import Footer from "./footer";
 import QtySpinner from "./qtySpinner";
-import clsx from "clsx";
-import Drawer from "@material-ui/core/Drawer";
+import clsx from 'clsx';
+import Drawer from '@material-ui/core/Drawer';
+
 
 const useStyles = makeStyles((theme) => ({
   itemRoot: {
@@ -99,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: 300,
+    width:300,
   },
 
   icon: {
@@ -110,157 +111,111 @@ const useStyles = makeStyles((theme) => ({
 
   list: {
     width: 350,
-    padding: 10,
+    padding:10,
   },
   fullList: {
-    width: "auto",
+    width: 'auto',
   },
+
 }));
 
 export default function MakePayment(props) {
   const classes = useStyles();
 
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [states, setStates] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [status, setStatus] = useState(false);
+  const [address1,setAddress1]=useState('')
+  const [address2,setAddress2]=useState('')
+  const [city,setCity]=useState('')
+  const [states,setStates]=useState('')
+  const [zipcode,setZipcode]=useState('')
+  const [status, setStatus] = useState(false)
 
-  const handleSaveAddress = async () => {
-    var body = {
-      address1: address1,
-      address2: address2,
-      city: city,
-      state: states,
-      zipcode: zipcode,
-      email: user.email,
-    };
-    var result = await postData("userregistration/updateuserdetails", body);
-
-    // console.log(result.result);
-    if (result.result) {
-      var res = await postData("userregistration/chkuserbymobileno", body);
-      if (res.result) {
-        dispatch({
-          type: "ADD_CLIENT",
-          payload: [res.data.email, res.data],
-        });
-        setStatus(!status);
-      }
-    } else {
-      alert("Fail to Save Address....");
+  const handleSaveAddress=async()=>{
+    var body={address1:address1,address2:address2,city:city,state:states,zipcode:zipcode,mobileno:user.mobileno}
+    var result=await postData("userdetails/updateuserdetails",body);
+    
+    // console.log(result.result); 
+    if(result.result)
+    {
+     var res = await postData("userdetails/chkuserbymobileno", body);
+     if (res.result) {
+       dispatch({ type: "ADD_CLIENT", payload: [res.data.mobileno, res.data] });
+       setStatus(!status);
+     }
+     
     }
-  }; //catch(e){alert(e)}
-
-  ///////////Drawer///////
-
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
+    else
+    {
+      alert("Fail to Save Address....")
     }
+    
+  } //catch(e){alert(e)} 
+  
+    
+///////////Drawer///////
 
-    setState({ ...state, [anchor]: open });
-  };
+const [state, setState] = React.useState({
+  top: false,
+  left: false,
+  bottom: false,
+  right: false,
+});
 
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-    >
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              textAlign: "center",
-            }}
-          >
-            <div style={{ fontSize: 14, fontWeight: "bold" }}>
-              {" "}
-              Hey {user.fname}
-            </div>
-            <div>
-              <img src="/del.jpg" width="100" alt="FNF" />
-            </div>
-            <div style={{ fontSize: 12, fontWeight: "bold" }}>
-              {" "}
-              Put your Delivery Address
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={(event) => setAddress1(event.target.value)}
-            label="Address one"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={(event) => setAddress2(event.target.value)}
-            label="Address Two"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={(event) => setCity(event.target.value)}
-            label="City"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={(event) => setStates(event.target.value)}
-            label="State"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={(event) => setZipcode(event.target.value)}
-            label="PinCode"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button
-            onClick={() => handleSaveAddress()}
-            style={{ background: "#1e6b7b", color: "#fff" }}
-            variant="contained"
-            color="#1e6b7b"
-            fullWidth
-          >
-            Save Address{" "}
-          </Button>
-        </Grid>
-      </Grid>
-    </div>
-  );
+const toggleDrawer = (anchor, open) => (event) => {
+  if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    return;
+  }
 
-  ////////////////////
+  setState({ ...state, [anchor]: open });
+};
+
+const list = (anchor) => (
+  <div
+    className={clsx(classes.list, {
+      [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+    })}
+    role="presentation"
+
+  >
+    
+    <Grid container spacing={1}> 
+    
+    <Grid item xs={12}> 
+    <div style={{display:'flex',flexDirection:'column',textAlign:'center'}}>
+     <div style={{fontSize:14,fontWeight:'bold'}}> Hey {user.firstname}</div>
+      <div><img src="/del.jpg" width="100" alt="FNF"/></div>
+      <div style={{fontSize:12,fontWeight:'bold'}}> Put your Delivery Address</div>
+      </div>
+    </Grid>
+    <Grid item xs={12}>
+      <Divider />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField onChange={(event)=>setAddress1(event.target.value)} label='Address one' variant='outlined' fullWidth />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField onChange={(event)=>setAddress2(event.target.value)} label='Address Two' variant='outlined' fullWidth />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField onChange={(event)=>setCity(event.target.value)} label='City' variant='outlined' fullWidth />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField onChange={(event)=>setStates(event.target.value)} label='State' variant='outlined' fullWidth />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField onChange={(event)=>setZipcode(event.target.value)} label='PinCode' variant='outlined' fullWidth />
+    </Grid>
+    <Grid item xs={12}>
+      <Button onClick={()=>handleSaveAddress()}
+      style={{ background: '#1e6b7b',color:'#fff'  }} variant="contained" color='#1e6b7b' fullWidth >
+       Save Address </Button>
+    </Grid>
+
+    </Grid>
+  </div>
+);
+
+
+////////////////////
 
   var cart = useSelector((state) => state.cart);
   var client = useSelector((state) => state.client);
@@ -291,6 +246,7 @@ export default function MakePayment(props) {
     item["qtydemand"] = value;
     dispatch({ type: "ADD_ITEM", payload: [item.subcategoryid, item] });
     setRefresh(!refresh);
+    
   };
 
   const handlePlaceOrder = () => {
@@ -324,7 +280,7 @@ export default function MakePayment(props) {
                     fontSize: "18px",
                   }}
                 >
-                  &#8377;{items.price - items.offer}.00
+                  &#8377;{items.price-items.offer}.00
                 </span>
                 <span
                   style={{ padding: "4px", color: "grey", fontWeight: "200" }}
@@ -402,48 +358,36 @@ export default function MakePayment(props) {
             <div className={classes.paymentContainer}>
               <div className={classes.paymentHeading}>
                 <div className={classes.paymentInformation}>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div>
-                      <h3>Delivery Address</h3>
-                    </div>
-                    <div style={{ fontSize: 18, fontWeight: "bolt" }}>
-                      {/* {user.fname} {user.lname} */}
-                    </div>
-                    <div>
-                      {{/* !user.addressstatus ? (
-                        <Button
-                          style={{
-                            fontSize: 14,
-                            fontWeight: "bold",
-                            marginTop: 10,
-                            width: 300,
-                          }}
-                          variant="contained"
-                          color="primary"
-                          onClick={toggleDrawer("right", true)}
-                        >
-                          Add Address
-                        </Button>
-                      ) */}  (
-                        <div
-                          style={{ display: "flex", flexDirection: "column" }}
-                        >
-                          <div style={{ marginTop: 3, marginBottom: 3 }}>
-                            {user.address1}
-                          </div>
-                          <div style={{ marginTop: 3, marginBottom: 3 }}>
-                            {user.address2}
-                          </div>
-                          <div style={{ marginTop: 3, marginBottom: 3 }}>
-                            {user.city}
-                          </div>
-                          <div style={{ marginTop: 3, marginBottom: 3 }}>
-                            {user.state}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                  <div style={{display:'flex',flexDirection:'column'}}>
+                  <div>
+                    <h3>Delivery Address</h3>
                   </div>
+                  <div style={{fontSize:18,fontWeight:'bolt'}}>
+                  {user.firstname} {user.lastname}
+                  </div>
+                  <div>
+                 {!user.addressstatus ?(<Button style={{fontSize:14,fontWeight:'bold',marginTop:10,width:300}} 
+                   variant="contained" color="primary" onClick={toggleDrawer('right', true)}>
+                    Add Address
+                  </Button>):(<div style={{display:'flex',flexDirection:'column'}}>
+                    <div style={{marginTop:3,marginBottom:3}}>
+                      {user.address1}
+                    </div>
+                    <div style={{marginTop:3,marginBottom:3}}>
+                      {user.address2}
+                    </div>
+                    <div style={{marginTop:3,marginBottom:3}}>
+                      {user.city}
+                   </div>
+                   <div style={{marginTop:3,marginBottom:3}}>
+                    {user.state}
+                   </div>
+
+                    </div>)
+                  } 
+                </div>
+
+                </div>
                 </div>
               </div>
             </div>
@@ -534,18 +478,15 @@ export default function MakePayment(props) {
         </div>
       </div>
       <div>
-        <React.Fragment key={"right"}>
-          <Drawer
-            anchor={"right"}
-            open={state["right"]}
-            onClose={toggleDrawer("right", false)}
-          >
-            {list("right")}
+        <React.Fragment key={'right'}>
+          <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
+            {list('right')}
           </Drawer>
         </React.Fragment>
-      </div>
+       </div>
 
       <Footer />
     </div>
-  );
-}
+  )
+
+  }
