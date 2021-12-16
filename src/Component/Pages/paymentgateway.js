@@ -9,7 +9,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Header from "./header";
@@ -93,8 +92,10 @@ const PaymentGateway = (props) => {
   };
 
   const handleOnLinePayment = () => {
+    const rzp1 = new window.Razorpay(options);
    client[user.mobileno]["PaymentMode"] = "Online Payment";
    openPayModal()
+   rzp1.open();
   };
   
   const handleSubmitOrder=async(paymentmode,transactionid)=>{
@@ -133,8 +134,8 @@ const PaymentGateway = (props) => {
   }
   
   const options = {
-    key: "rzp_test_e1WBIg6y3arw0S",
-    amount: 1000, //  = INR 1
+    key: "rzp_test_GQ6XaPC6gMPNwH",
+    amount: 10000, //  = INR 1
     name: "Mobile Shop",
     description: 'Online Shop',
     image:`${ServerURL}/images/logo.jpg`  ,
@@ -157,14 +158,15 @@ const PaymentGateway = (props) => {
   };
 
   const openPayModal = () => {
-    var rzp1 = new window.Razorpay(options);
+    let rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
   useEffect(() => {
-    const script = document.createElement("script");
+     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.async = true;
-    document.body.appendChild(script);
+    document.body.appendChild(script); 
+    openPayModal()
   }, []);
   const classes = useStyles();
 

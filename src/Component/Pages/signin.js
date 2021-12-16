@@ -78,7 +78,7 @@ export default function SignIn(props) {
   var dispatch = useDispatch();
   const handleVerify = () => {
    
-    if (otp === gotp) props.history.push({ pathname: "/home" });
+    if (otp === gotp) props.history.push({ pathname: "/showcart" });
     else alert("Invalid Otp....");
   };
   const handleCheckUserMobileNumber = async () => {
