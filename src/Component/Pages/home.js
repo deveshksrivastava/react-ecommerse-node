@@ -77,7 +77,35 @@ const Home=(props)=> {
   //   slidesToScroll: 1,
   //   arrows: false,
   // };
-
+  const settinghome = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendDots: dots => (
+      <div
+        style={{
+          backgroundColor: "#ddd",
+          borderRadius: "10px",
+          padding: "10px"
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          width: "30px",
+          color: "blue",
+          border: "1px blue solid"
+        }}
+      >
+        {i + 1}
+      </div>
+    )
+  };
   var settingbanner = {
     dots: true,
     infinite: true,
@@ -87,6 +115,29 @@ const Home=(props)=> {
     arrows: true,
     nextArrow: <SampleNextA />,
     prevArrow: <SamplePrevA />
+    // appendDots: dots => (
+    //   <div
+    //     style={{
+    //       backgroundColor: "#ddd",
+    //       borderRadius: "10px",
+    //       padding: "10px"
+    //     }}
+    //   >
+    //     <ul style={{ margin: "0px" }}> {dots} </ul>
+    //   </div>
+    // ),
+    // customPaging: i => (
+    //   <div
+    //     style={{
+    //       width: "30px",
+    //       color: "blue",
+    //       border: "1px blue solid"
+    //     }}
+    //   >
+    //     {i + 1}
+    //   </div>
+    // )
+  
   };
   function SampleNextA(props) {
     const { className, style, onClick } = props;
@@ -246,6 +297,7 @@ const handleQtyChange=(value,item)=>{
           }}
           onClick={() => handleConsoleList(item.categoryid)}
         >
+          {/* <Slider {...settingbanner}> */}
           <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="50%" />
           <div
             style={{
@@ -257,6 +309,7 @@ const handleQtyChange=(value,item)=>{
           >
             {item.categoryname.toUpperCase()}
           </div>
+        {/* </Slider> */}
         </div>
       );
     });
@@ -435,7 +488,9 @@ const handleQtyChange=(value,item)=>{
                 </li>
               </ul>
             </div>
+
             <div className="ps-section__content pb-50">
+
               <div
                 style={{ display: "flex",flexWrap: "wrap" }}
                 className="masonry-wrapper"
@@ -466,7 +521,7 @@ const handleQtyChange=(value,item)=>{
                                 onClick={()=>props.history.push({"pathname":"/productView"},{'product':item})} 
                             >
                                   <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
-                              
+
                                 </div>
                                 
                                 <div style={{ fontSize: 14, fontWeight: "bold", padding: 10 }}>
@@ -486,7 +541,6 @@ const handleQtyChange=(value,item)=>{
                                   </span>
                                   <b>&#8377; {item.offer}</b>
                                 </div>
-
                             </Paper>
                           </div>
                         </div>
