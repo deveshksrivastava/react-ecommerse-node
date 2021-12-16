@@ -187,7 +187,7 @@ const Home=(props)=> {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
         autoplay: true,
     autoplaySpeed: 2000,

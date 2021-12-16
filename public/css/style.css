@@ -274,7 +274,7 @@
 
 @media (min-width: 992px) {
   [data-col-md="4"].masonry-wrapper .grid-item, [data-col-md="4"].masonry-wrapper .grid-sizer {
-    width: 25%; }
+    width: 20%; }
   [data-col-md="4"].masonry-wrapper .grid-item.wide, [data-col-md="4"].masonry-wrapper .grid-item.large {
     width: 50%; }
   [data-col-md="4"].masonry-wrapper .grid-item.extra-large {
@@ -452,8 +452,9 @@
 [data-gap="30"].masonry-wrapper {
   margin: -15px;
   width: 100%;
+  overflow-y: scroll;
   height: 805px;
-  overflow-y: auto;
+  overflow-x: hidden;
 }
   [data-gap="30"].masonry-wrapper .grid-item .grid-item__content-wrapper {
     margin: 15px;
@@ -2385,10 +2386,10 @@ textarea.form-control {
   .ps-shoe:before {
     content: '';
     position: absolute;
-    top: -15px;
-    left: -15px;
-    width: calc(90% + 5px);
-    height: calc(85% + 92px);
+    top: -10px;
+    left: 14px;
+    width: calc(100% + 5px);
+    height: calc(84% + 88px);
     border: 1px solid #000;
     z-index: 1000;
     visibility: hidden;
@@ -2532,6 +2533,7 @@ textarea.form-control {
     -ms-transform: scale(0, 0);
     -o-transform: scale(0, 0);
     transform: scale(0, 0); }
+    
     .ps-shoe .ps-shoe__favorite i {
       position: absolute;
       top: 50%;
@@ -2573,7 +2575,25 @@ textarea.form-control {
     -moz-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     -o-transform: scale(1, 1);
-    transform: scale(1, 1); }
+    transform: scale(1, 1); 
+    margin: 10px -78px 0px 0px;
+  }
+  .ps-shoe:hover .ps-shoe__variants1 {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  .ps-shoe:hover .ps-shoe__favorite {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1); 
+    margin: 10px -78px 0px 0px;
+  }
   @media (max-width: 1199px) {
     .ps-shoe:before {
       display: none; } }
@@ -6456,7 +6476,7 @@ html .bg--parallax {
 
 .pb-50 {
   padding-bottom: 50px; 
-  overflow:scroll;
+  /* overflow-y:auto; */
   }
 
 .pb-55 {

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 export default function Footer() {
     return (
     <div>
-      <div className="ps-footer bg--cover" data-background="images/background/parallax.jpg">
+      <div className="ps-footer bg--cover" data-background="images/background/p.jpg">
         <div className="ps-footer__content">
           <div className="ps-container">
             <div className="row">

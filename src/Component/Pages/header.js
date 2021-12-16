@@ -731,21 +731,6 @@ export default function Header(props) {
                   </React.Fragment>
                 </div>
               </div>
-
-              {/* <div className="ps-cart"> */}
-              {/*  <Link className="ps-cart__toggle" to="#" 
-                onClick={toggleDrawer("right", true)}
-                aria-label="show cart notifications"
-                color="inherit"
-                style={{backgroundColor:"black" , marginTop:"25px"}}> 
-                </Link> 
-                <Badge badgeContent={keys.length} color="secondary">
-                  <ShoppingBasketOutlined />
-                </Badge> */}
-              {/* </div> */}
-
-              {/* Card end */}
-
               <div className="menu-toggle">
                 <span></span>
               </div>
