@@ -450,7 +450,11 @@
     left: 13px; }
 
 [data-gap="30"].masonry-wrapper {
-  margin: -15px; }
+  margin: -15px;
+  width: 100%;
+  height: 805px;
+  overflow-y: auto;
+}
   [data-gap="30"].masonry-wrapper .grid-item .grid-item__content-wrapper {
     margin: 15px;
     top: 15px;
@@ -6451,7 +6455,9 @@ html .bg--parallax {
   padding-bottom: 45px; }
 
 .pb-50 {
-  padding-bottom: 50px; }
+  padding-bottom: 50px; 
+  overflow:scroll;
+  }
 
 .pb-55 {
   padding-bottom: 55px; }
