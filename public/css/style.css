@@ -5314,7 +5314,7 @@ textarea.form-control {
 
 .ps-product__columns {
   padding-bottom: 80px;
-  margin: 0 -15px; }
+  margin: 0 -20px; }
   .ps-product__columns::after {
     clear: both;
     content: "";
