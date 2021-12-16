@@ -558,13 +558,11 @@ const handleQtyChange=(value,item)=>{
                                   <div className="ps-badge">
                                     <span>New</span>
                                   </div>
-
                                   <a className="ps-shoe__favorite" href="#">
                                     <i className="ps-icon-heart"></i>
                                   </a>
                                   <Paper  elevation={3} className={classes.paperstyle}>
                                       <div style={{display:'flex',justifyContent:'center'}} 
-
                                         onClick={()=>handleConsoleList1(item.subcategoryid)}                            
                                   >
                                         <img src={`${ServerURL}/images/${item.icon}`} alt="FNF" width="auto" height='160px'/>
