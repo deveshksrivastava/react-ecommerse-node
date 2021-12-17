@@ -426,22 +426,22 @@ export default function Header(props) {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      USD<i className="fa fa-angle-down"></i>
+                      Info<i className="fa fa-angle-down"></i>
                     </Link>
                     <ul className="dropdown-menu">
                       <li>
                         <Link to="#">
-                          <img src="images/flag/usa.svg" alt="" /> USD
+                          <img src="images/flag/user.png" alt="" /> User Profile
                         </Link>
                       </li>
                       <li>
                         <Link to="#">
-                          <img src="images/flag/singapore.svg" alt="" /> SGD
+                          <img src="images/flag/logout.png" alt="" /> Logout
                         </Link>
                       </li>
                       <li>
                         <Link to="#">
-                          <img src="images/flag/japan.svg" alt="" /> JPN
+                          <img src="images/flag/feedback.png" alt="" />Your FeedBack
                         </Link>
                       </li>
                     </ul>
@@ -713,10 +713,11 @@ export default function Header(props) {
                   onClick={toggleDrawer("right", true)}
                   aria-label="show cart notifications"
                   color="inherit"
-                  style={{ backgroundColor: "#74c349" }}
+                  // style={{ backgroundColor: "#74c349" }}
                 >
-                  <Badge badgeContent={keys.length} color="secondary">
-                    <ShoppingBasketOutlined />
+                  <Badge badgeContent={keys.length} color="primary">
+                   {/*  <ShoppingBasketOutlined /> */}
+                   <img src="images/cart3.png" alt="" style={{width:"60px", height:"35px"}} />
                   </Badge>
                 </IconButton>
                 <div>
