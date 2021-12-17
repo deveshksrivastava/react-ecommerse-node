@@ -67,7 +67,7 @@ router.post('/editad', upload.single('ad') ,function(req, res, next) {
 
 router.post('/editcategorydata', function(req, res, next) {
  
-    pool.query("update categories set categoryname=?,description=?,addstatus=? where categoryid=? ",[req.body.categoryname, req.body.description,req.body.addstatus,req.body.categoryid], function(error , result)
+    pool.query("update categories set categoryname=?,description=? where categoryid=? ",[req.body.categoryname, req.body.description,req.body.categoryid], function(error , result)
     {
         if(error)
         {

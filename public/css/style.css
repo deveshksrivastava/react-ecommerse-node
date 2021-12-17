@@ -453,7 +453,7 @@
   margin: -15px;
   width: 100%;
   overflow-y: scroll;
-  height: 805px;
+  height: 830px;
   overflow-x: hidden;
 }
   [data-gap="30"].masonry-wrapper .grid-item .grid-item__content-wrapper {
@@ -2387,8 +2387,8 @@ textarea.form-control {
     content: '';
     position: absolute;
     top: -10px;
-    left: 14px;
-    width: calc(100% + 5px);
+    left: 15px;
+    width: calc(99% + 4px);
     height: calc(84% + 88px);
     border: 1px solid #000;
     z-index: 1000;
@@ -2405,7 +2405,7 @@ textarea.form-control {
   .ps-shoe .ps-shoe__thumbnail {
     position: relative;
     z-index: 100; 
-    padding: 10px 6px 6px 6px;
+    padding: 6px 6px 6px 6px;
     margin: 20px;
   }
    .ps-shoe .ps-shoe__thumbnail img {
