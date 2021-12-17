@@ -134,7 +134,7 @@ const PaymentGateway = (props) => {
   }
   
   const options = {
-    key: "rzp_test_GQ6XaPC6gMPNwH",
+    key: "rzp_test_n45Z8MDUeLyu8J",
     amount: 10000, //  = INR 1
     name: "Mobile Shop",
     description: 'Online Shop',

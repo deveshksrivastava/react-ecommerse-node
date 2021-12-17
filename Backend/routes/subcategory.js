@@ -6,7 +6,7 @@ var upload=require('./multer');
 /* GET home page. */
 router.post('/addnewsubcategory',upload.any(), function(req, res, next) {
     
-    sql="insert into subcategory(categoryid,subcategoryname,description,icon,ad) values(?,?,?,?,?)";
+   var sql="insert into subcategory(categoryid,subcategoryname,description,icon,ad) values(?,?,?,?,?)";
     pool.query(sql,
     [req.body.categoryid,
     req.body.subcategoryname,
@@ -111,14 +111,10 @@ router.post('/editad',upload.single('ad'), function(req, res, next) {
 });
 
 router.post('/editsubcategorydata', function(req, res, next) {
-    pool.query("update subcategory set categoryid=?,subcategoryname=?,description=?,adstatus=?,price=?,stock=?,offer=? where subcategoryid=?",
+    pool.query("update subcategory set categoryid=?,subcategoryname=?,description=? where subcategoryid=?",
     [req.body.categoryid,
     req.body.subcategoryname,
     req.body.description,
- //   req.body.adstatus,
-//    req.body.price,
-//    req.body.stock,
- //   req.body.offer,
     req.body.subcategoryid]
     ,function(error,result){
         if(error)
