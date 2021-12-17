@@ -575,13 +575,14 @@ const handleQtyChange=(value,item)=>{
                   </div>
             </div>
             
-             <div style={{ display: "flex", flexDirection: "column" }}>
+             <div style={{ display: "flex", flexDirection: "column",justifyContent:'center' }}>
                 <div
                   style={{
                     width: "100%",
                     display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    padding:10,
+                    // justifyContent: "center",
+                    // alignItems: "center",
                   }}
                 >
                   {/* <IconButton

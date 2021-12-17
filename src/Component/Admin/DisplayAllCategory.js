@@ -1,6 +1,5 @@
 import MaterialTable from "material-table";
 import React, { useState, useEffect } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -12,7 +11,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-
 import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import Avatar from "@material-ui/core/Avatar";
 import swalhtml from "@sweetalert/with-react";
@@ -123,22 +121,20 @@ export default function DisplayAllCategory(props){
         {error=true;
             msg+="<font color='#e74c3c'><b>Description should not be blank..</b></font><br>";
         }
-        if(isBlank(addStatus))
-        {error=true;
-            msg+="<font color='#e74c3c'><b>AddStatus should not be blank..</b></font><br>";
-        }
+        // if(isBlank(addStatus))
+        // {error=true;
+        //     msg+="<font color='#e74c3c'><b>AddStatus should not be blank..</b></font><br>";
+        // }
         msg+="</div>";
         if(error)
         {
             swalhtml(renderHTML(msg));
         }
-        else
-        {
+        else{
         var body={ 
           categoryid:categoryID,
           categoryname:categoryName,
           description:categoryDescription,
-          addstatus:addStatus,
          }      
         var result=await postData('categories/editcategorydata',body)
         if(result){
