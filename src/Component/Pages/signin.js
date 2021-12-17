@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Header from "./header";
 import Grid from "@material-ui/core/Grid";
-
+import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import clsx from "clsx";
-import { ServerURL,postData } from "../Admin/FetchNodeService";
+import { ServerURL, postData } from "../Admin/FetchNodeService";
 import { isEmpty, isMobile } from "../Admin/Checks";
 import Footer from "./footer";
 import { useDispatch } from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import OtpGenerator from "otp-generator";
+import { Typography } from "@mui/material";
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -77,7 +78,6 @@ export default function SignIn(props) {
   const [gotp, setGOtp] = useState();
   var dispatch = useDispatch();
   const handleVerify = () => {
-   
     if (otp === gotp) props.history.push({ pathname: "/showcart" });
     else alert("Invalid Otp....");
   };
@@ -96,23 +96,26 @@ export default function SignIn(props) {
       var body = { mobileno: mobileno };
       var result = await postData("userdetails/chkuserbymobileno", body);
       if (result.result) {
-        var temp=OtpGenerator.generate(4, {
-            digits: true,
-            alphabets: false,
-            upperCase: false,
-            specialChars: false,
-          })
-          alert(temp)
-      
-        setGOtp(temp)
-        
+        var temp = OtpGenerator.generate(4, {
+          digits: true,
+          alphabets: false,
+          upperCase: false,
+          specialChars: false,
+        });
+        alert(temp);
+
+        setGOtp(temp);
+
         dispatch({
           type: "ADD_CLIENT",
           payload: [result.data.mobileno, result.data],
         });
         setStatus(true);
       } else {
-        props.history.push({ pathname: "/registration" }, { mobileno: mobileno });
+        props.history.push(
+          { pathname: "/registration" },
+          { mobileno: mobileno }
+        );
       }
     }
   };
@@ -144,11 +147,29 @@ export default function SignIn(props) {
           <Grid container spacing={1}>
             <Grid item xs="12" sm={6}>
               <div style={{ marginTop: 1, marginLeft: 10, paddingLeft: 40 }}>
-                <img src={`${ServerURL}/images/shop1.jpg` } width='450' height='450' alt="FNF" />
+                <img
+                  src={`${ServerURL}/images/shop1.jpg`}
+                  width="450"
+                  height="450"
+                  alt="FNF"
+                />
               </div>
             </Grid>
             <Grid item xs="12" sm={6}>
               <div style={{ display: "flex", flexDirection: "column" }}>
+                <Typography
+                  color="textSecondary"
+                  variant="body2"
+                  style={{ fontSize: "20px" }}
+                >
+                  Don&apos;t have an account?{" "}
+                  <Link to="/registration">Sign Up</Link>
+                  <br />
+                  <Link to="/forgotpasswort" variant="body2">
+                    Click here Forgot password?
+                  </Link><br/>
+                  <Link to="/login">Signin With Email-Id and Password</Link>
+                </Typography>
                 <h2>Sign in</h2>
                 <p>Sign in to access your Orders, Offers and Wishlist. </p>
                 <div style={{ display: "flex" }}>
@@ -189,7 +210,8 @@ export default function SignIn(props) {
                 <div style={{ padding: 5 }}>
                   <h4>Verify</h4>
                   <p>
-                    We have sent 4 digit otp on <b>+91-{mobileno} Or OnConsole</b>
+                    We have sent 4 digit otp on{" "}
+                    <b>+91-{mobileno} Or OnConsole</b>
                   </p>
                   <TextField
                     id="outlined-basic"

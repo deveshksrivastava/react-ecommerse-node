@@ -158,7 +158,7 @@ const PaymentGateway = (props) => {
   };
 
   const openPayModal = () => {
-    let rzp1 = new window.Razorpay(options);
+    const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
   useEffect(() => {
