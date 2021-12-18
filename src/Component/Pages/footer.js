@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="row">
                   <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside className="ps-widget--footer ps-widget--info">
-                      <header><Link className="ps-logo" to="/"><img src="images/logo-white.png" alt=""/></Link>
+                      <header><Link className="ps-logo" to="/"><img src="images/background/logomakr.png" alt=""/></Link>
                         <h3 className="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="ps-container">
             <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="#">TECHBLUEHOST</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul className="ps-social">
