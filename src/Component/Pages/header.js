@@ -430,7 +430,7 @@ export default function Header(props) {
                     </Link>
                     <ul className="dropdown-menu">
                       <li>
-                        <Link to="#">
+                        <Link to="/userprofile">
                           <img src="images/flag/user.png" alt="" /> User Profile
                         </Link>
                       </li>
