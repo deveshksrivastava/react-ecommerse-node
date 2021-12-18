@@ -478,7 +478,7 @@ export default function Header(props) {
             <div className="navigation__column left">
               <div className="header__logo">
                 <Link className="ps-logo" to="/home">
-                  <img src="images/logo.png" alt="" />
+                  <img src="images/background/logo.png" alt="" />
                 </Link>
               </div>
             </div>
