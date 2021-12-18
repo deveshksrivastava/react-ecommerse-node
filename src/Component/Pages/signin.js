@@ -167,7 +167,8 @@ export default function SignIn(props) {
                   <br />
                   <Link to="/forgotpasswort" variant="body2">
                     Click here Forgot password?
-                  </Link><br/>
+                  </Link>
+                  <br />
                   <Link to="/login">Signin With Email-Id and Password</Link>
                 </Typography>
                 <h2>Sign in</h2>

@@ -15,21 +15,21 @@ export default function UserProfile() {
               <div className="user-heading round">
                 <a href="#">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
                     alt=""
                   />
                 </a>
-                <h1>Camila Smith</h1>
-                <p>deydey@theEmail.com</p>
+                <h1>Pushpendra Gupta</h1>
+                <p style={{color:"currentcolor"}}>pg@gmail.com</p>
               </div>
 
               <ul className="nav nav-pills nav-stacked">
-                <li className="active">
+                {/* <li className="active">
                   <a href="#">
                     {" "}
                     <i className="fa fa-user"></i> Profile
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#">
                     {" "}
@@ -43,6 +43,36 @@ export default function UserProfile() {
                   <a href="#">
                     {" "}
                     <i className="fa fa-edit"></i> Edit profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {" "}
+                    <i className="fa fa-list" aria-hidden="true"></i> My List
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {" "}
+                    <i className="fa fa-heart" aria-hidden="true"></i> WishList
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {" "}
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i> My Orders History
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {" "}
+                    <i class="fa fa-phone" aria-hidden="true"></i> Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {" "}
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> Legal Information
                   </a>
                 </li>
               </ul>
@@ -85,50 +115,49 @@ export default function UserProfile() {
             </div> */}
             <div className="panel">
               <div className="bio-graph-heading">
-                Aliquam ac magna metus. Nam sed arcu non tellus fringilla
-                fringilla ut vel ispum. Aliquam ac magna metus.
+              <h1><i class="fa fa-user" aria-hidden="true"></i> <l><b>Personal Info</b></l></h1>
               </div>
               <div className="panel-body bio-graph-info">
-                <h1>Your detail</h1>
+              {/*   <h1><i class="fa fa-user" aria-hidden="true"></i> <l><b>Personal Info</b></l></h1> */}
                 <div className="row">
                   <div className="bio-row">
                     <p>
-                      <span>First Name </span>: Camila
+                      <span>First Name </span>: Pushpendra
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Last Name </span>: Smith
+                      <span>Last Name </span>: Gupta
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Country </span>: Australia
+                      <span>Country </span>: India
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Birthday</span>: 13 July 1983
+                      <span>Birthday</span>: 05-jan-1999
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Occupation </span>: UI Designer
+                      <span>Occupation </span>: Full Stack Developer
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Email </span>: jsmith@flatlab.com
+                      <span>Email </span>: pg@gmail.com
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Mobile </span>: (12) 03 4567890
+                      <span>Mobile </span>: +91 83495250218
                     </p>
                   </div>
                   <div className="bio-row">
                     <p>
-                      <span>Phone </span>: 88 (02) 123456
+                      <span>Phone </span>: 7513566545
                     </p>
                   </div>
                 </div>
