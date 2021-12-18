@@ -16,6 +16,7 @@ import MakePayment from './Component/Pages/makepayment';
 import SignIn from './Component/Pages/signin';
 import Registration from './Component/Pages/registration';
 import PaymentGateway from './Component/Pages/paymentgateway'
+import UserProfile from './Component/Pages/USERPROFILE/userprofile'
 function App(props) {
   return (
     <div>
@@ -38,6 +39,8 @@ function App(props) {
       <Route   path="/signin" exact  component={SignIn} history={props.history}/>
       <Route   path="/registration" exact  component={Registration} history={props.history}/>
       <Route   path="/paymentgateway" exact  component={PaymentGateway} history={props.history}/>
+      <Route   path="/userprofile" exact  component={UserProfile} history={props.history}/>
+
 
       <Route component={PageNotFound } />
       </Switch>  
