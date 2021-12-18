@@ -411,8 +411,8 @@ export default function Header(props) {
             <div className="row">
               <div className="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
                 <p>
-                  460 West 34th Street, 15th floor, New York - Hotline:
-                  804-377-3580 - 804-399-3580
+                17, Bridge Street, Swindon- SN1 1BU,London - Phone:
+                +44 7918353342
                 </p>
               </div>
               <div className="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">

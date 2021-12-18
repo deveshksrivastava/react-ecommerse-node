@@ -2274,7 +2274,7 @@ textarea.form-control {
     font-weight: 700; }
 
 .ps-widget--info.second {
-  padding-top: 55px; }
+  padding-top: 39px; }
 
 @media (max-width: 991px) {
   .ps-widget--info.second {
@@ -3602,14 +3602,14 @@ textarea.form-control {
 .ps-home-contact {
   position: relative; }
   .ps-home-contact #contact-map {
-    height: 680px; }
+    height: 560px; }
   .ps-home-contact .ps-home-contact__form {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 460px;
-    padding: 50px 40px;
+    top: 29px;
+    left: 0px;
+    height: 95%;
+    width: 452px;
+    padding: 8px 33px;
     margin-left: calc((100% - 1440px) / 2);
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.9); }

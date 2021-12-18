@@ -846,7 +846,7 @@ const Home = (props) => {
                   ></span>
                 </NavLink>
                 <NavLink
-                  to="/contact-us"
+                  to="/contact"
                   className="btn btn-style btn-primary mt-sm-5 mt-4"
                 >
                   Contact Us{" "}
