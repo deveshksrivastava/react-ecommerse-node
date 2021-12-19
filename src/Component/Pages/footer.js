@@ -9,14 +9,14 @@ export default function Footer() {
             <div className="row">
                   <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside className="ps-widget--footer ps-widget--info">
-                      <header><Link className="ps-logo" to="/"><img src="images/logo-white.png" alt=""/></Link>
+                      <header><Link className="ps-logo" to="/"><img src="images/background/logomakr.png" alt=""/></Link>
                         <h3 className="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
-                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
-                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
-                        <p>Phone: +323 32434 5334</p>
-                        <p>Fax: ++323 32434 5333</p>
+                        <p><strong> 17, Bridge Street, Swindon- SN1 1BU</strong></p>
+                        <p>Email: <a href='mailto: devesh.srivastava@techbluehost.com'> devesh.srivastava@techbluehost.com</a></p>
+                        <p>Phone: +44 7918353342</p>
+                        {/* <p>Fax: ++323 32434 5333</p> */}
                       </footer>
                     </aside>
                   </div>
@@ -26,10 +26,10 @@ export default function Footer() {
                         <h3 className="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
-                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
-                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
-                        <p>Phone: +323 32434 5334</p>
-                        <p>Fax: ++323 32434 5333</p>
+                        <p><strong>North East Delhi, Delhi, 110053</strong></p>
+                        <p>Email: <a href='mailto:devesh.srivastava@techbluehost.com'>devesh.srivastava@techbluehost.com</a></p>
+                        <p>Phone: 9999305585</p>
+
                       </footer>
                     </aside>
                   </div>
@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="ps-container">
             <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="#">TECHBLUEHOST</a>, Inc. All rights Resevered. Design by <a href="#"> Devesh Srivastava</a></p>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul className="ps-social">

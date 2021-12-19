@@ -15,6 +15,7 @@ var userdetailsRouter=require('./routes/userdetails');
 var ordersRouter =require('./routes/orders');
 var mobilepictureRouter=require('./routes/mobilepicture');
 var userregistrationRouter=require('./routes/userregistration');
+var contactusRouter=require('./routes/contactus');
 var app = express();
 
 // view engine setup
@@ -38,7 +39,8 @@ app.use('/accessories',accessoriesRouter);
 app.use('/userdetails',userdetailsRouter);
 app.use('/orders',ordersRouter);
 app.use('/mobilepicture',mobilepictureRouter);
-app.use('/userregistration',userregistrationRouter)
+app.use('/userregistration',userregistrationRouter);
+app.use('/contactus',contactusRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
