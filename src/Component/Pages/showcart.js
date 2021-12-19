@@ -1,106 +1,107 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Divider } from "@material-ui/core";
-import DeleteOutline from "@material-ui/icons/DeleteOutline";
-import { ServerURL } from "../Admin/FetchNodeService.js";
-import { useSelector, useDispatch } from "react-redux";
-import Button from "@material-ui/core/Button";
-import Footer from "./footer";
-import QtySpinner from "./qtySpinner.js";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Divider } from '@material-ui/core';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
+import { ServerURL } from '../Admin/FetchNodeService.js';
+import { useSelector, useDispatch } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import Footer from './footer';
+import Header from './header';
+import QtySpinner from './qtySpinner.js';
 
 const useStyles = makeStyles((theme) => ({
   itemRoot: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   },
 
   itemSubroot: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "15px",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    padding: '15px',
+    justifyContent: 'space-between',
   },
 
   itemIcons: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   itemHeading: {
-    padding: "15px",
+    padding: '15px',
   },
 
   superRoot: {
-    display: "flex",
-    flexDirection: "row",
-    background: "#F6F6F7",
+    display: 'flex',
+    flexDirection: 'row',
+    background: '#F6F6F7',
   },
 
   cartRoot: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "60px",
-    paddingTop: "10px",
+    display: 'flex',
+    flexDirection: 'row',
+    padding: '60px',
+    paddingTop: '10px',
   },
 
   cartSubroot: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   },
 
   cartContainer: {
-    background: "#fff",
-    borderRadius: "10px",
-    padding: "25px",
+    background: '#fff',
+    borderRadius: '10px',
+    padding: '25px',
   },
 
   cartHeading: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    borderRadius: "10px",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderRadius: '10px',
   },
 
   paymentRoot: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "40px",
-    paddingTop: "10px",
+    display: 'flex',
+    flexDirection: 'row',
+    padding: '40px',
+    paddingTop: '10px',
   },
 
   paymentSubroot: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 
   paymentContainer: {
-    background: "#fff",
-    borderRadius: "10px",
-    padding: "10px",
-    marginBottom: "10px",
-    width: "110%",
+    background: '#fff',
+    borderRadius: '10px',
+    padding: '10px',
+    marginBottom: '10px',
+    width: '110%',
   },
 
   paymentHeading: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 
   paymentInformation: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   icon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
@@ -126,28 +127,29 @@ export default function ShowCart(props) {
   }
 
   const handleDelete = (item) => {
-    dispatch({ type: "REMOVE_ITEM", payload: [item.subcategoryid] });
+    dispatch({ type: 'REMOVE_ITEM', payload: [item.subcategoryid] });
     setRefresh(!refresh);
   };
 
   const handleQtyChange = (value, item) => {
-    if (values===0) {
+    if (values === 0) {
       setRefresh(!refresh);
     } else {
-    item["qtydemand"] = value;
-    dispatch({ type: "ADD_ITEM", payload: [item.subcategoryid, item] });
-    setRefresh(!refresh);
-   }
+      item['qtydemand'] = value;
+      dispatch({ type: 'ADD_ITEM', payload: [item.subcategoryid, item] });
+      setRefresh(!refresh);
+    }
   };
 
   const handlePlaceOrder = () => {
-    props.history.push({ pathname: "/makepayment" });
+    props.history.push({ pathname: '/makepayment' });
   };
 
   const showCartItems = () => {
     return values.map((items) => {
       return (
         <div className={classes.itemRoot}>
+          <Header />
           <div className={classes.itemSubroot}>
             <div>
               <img
@@ -158,31 +160,31 @@ export default function ShowCart(props) {
               />
             </div>
             <div className={classes.itemHeading}>
-              <div style={{ marginBottom: "10px" }}>
-                <span style={{ fontWeight: "600", fontSize: "18px" }}>
+              <div style={{ marginBottom: '10px' }}>
+                <span style={{ fontWeight: '600', fontSize: '18px' }}>
                   {items.subcategoryname}
                 </span>
               </div>
               <div>
                 <span
                   style={{
-                    padding: "4px",
-                    fontWeight: "600",
-                    fontSize: "18px",
+                    padding: '4px',
+                    fontWeight: '600',
+                    fontSize: '18px',
                   }}
                 >
-                  &#8377;{items.price-items.offer}.00
+                  &#8377;{items.price - items.offer}.00
                 </span>
                 <span
-                  style={{ padding: "4px", color: "grey", fontWeight: "200" }}
+                  style={{ padding: '4px', color: 'grey', fontWeight: '200' }}
                 >
                   <s>&#8377;{items.price}.00</s>
                 </span>
                 <span
                   style={{
-                    padding: "4px",
-                    color: "#00A100",
-                    fontWeight: "400",
+                    padding: '4px',
+                    color: '#00A100',
+                    fontWeight: '400',
                   }}
                 >
                   You Save &#8377;{items.offer}.00
@@ -211,6 +213,7 @@ export default function ShowCart(props) {
 
   return (
     <div className={classes.root}>
+      <Header />
       <br />
       <br />
       <div className={classes.superRoot}>
@@ -222,7 +225,7 @@ export default function ShowCart(props) {
             <div className={classes.cartContainer}>
               <div className={classes.cartHeading}>
                 <div>
-                  <h3>Mobile Shop   ({keys.length} items)</h3>
+                  <h3>Mobile Shop ({keys.length} items)</h3>
                 </div>
                 <div>
                   <h3>&#8377; {total}.00</h3>
@@ -273,64 +276,64 @@ export default function ShowCart(props) {
                 </div>
                 <div>
                   <div
-                    style={{ marginBottom: "4px", marginTop: "4px" }}
+                    style={{ marginBottom: '4px', marginTop: '4px' }}
                     className={classes.paymentInformation}
                   >
                     <div>
                       <span
                         style={{
-                          padding: "4px",
-                          color: "grey",
-                          fontWeight: "400",
+                          padding: '4px',
+                          color: 'grey',
+                          fontWeight: '400',
                         }}
                       >
                         MRP Total
                       </span>
                     </div>
                     <div>
-                      <span style={{ fontWeight: "400" }}>
+                      <span style={{ fontWeight: '400' }}>
                         &#8377; {totalrate}.00
                       </span>
                     </div>
                   </div>
                   <Divider />
                   <div
-                    style={{ marginBottom: "4px", marginTop: "4px" }}
+                    style={{ marginBottom: '4px', marginTop: '4px' }}
                     className={classes.paymentInformation}
                   >
                     <div>
-                      <span style={{ color: "grey", fontWeight: "400" }}>
+                      <span style={{ color: 'grey', fontWeight: '400' }}>
                         Product Discount
                       </span>
                     </div>
                     <div>
-                      <span style={{ fontWeight: "400" }}>
+                      <span style={{ fontWeight: '400' }}>
                         - &#8377; {totalsaving}.00
                       </span>
                     </div>
                   </div>
                   <Divider />
                   <div
-                    style={{ marginBottom: "4px", marginTop: "4px" }}
+                    style={{ marginBottom: '4px', marginTop: '4px' }}
                     className={classes.paymentInformation}
                   >
                     <div>
-                      <span style={{ fontWeight: "600" }}>Total Amount</span>
+                      <span style={{ fontWeight: '600' }}>Total Amount</span>
                     </div>
                     <div>
-                      <span style={{ fontWeight: "600" }}>
+                      <span style={{ fontWeight: '600' }}>
                         &#8377; {total}.00
                       </span>
                     </div>
                   </div>
                   <div
-                    style={{ display: "flex", flexDirection: "row-reverse" }}
+                    style={{ display: 'flex', flexDirection: 'row-reverse' }}
                   >
                     <span
                       style={{
-                        padding: "4px",
-                        color: "#00A100",
-                        fontWeight: "400",
+                        padding: '4px',
+                        color: '#00A100',
+                        fontWeight: '400',
                       }}
                     >
                       You Save &#8377;{totalsaving}.00
@@ -341,7 +344,7 @@ export default function ShowCart(props) {
             </div>
             <div className={classes.icon}>
               <Button
-                style={{ background: "#008ECC", color: "#FFF" }}
+                style={{ background: '#008ECC', color: '#FFF' }}
                 fullWidth
                 onClick={() => handlePlaceOrder()}
               >

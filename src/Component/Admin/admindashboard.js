@@ -12,7 +12,7 @@ import Container from '@material-ui/core/Container';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from './ListItems';
-
+import { Link } from 'react-router-dom';
 const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
@@ -97,11 +97,11 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminDashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const [view,setView]=React.useState("")
+  const [view, setView] = React.useState('');
 
-  const setComponent=(v)=>{
-      setView(v)
-  }
+  const setComponent = (v) => {
+    setView(v);
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -113,24 +113,36 @@ export default function AdminDashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar
+        position="absolute"
+        className={clsx(classes.appBar, open && classes.appBarShift)}
+      >
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+            className={clsx(
+              classes.menuButton,
+              open && classes.menuButtonHidden
+            )}
           >
-            <MenuIcon />   
+            <MenuIcon />
           </IconButton>
-        
-          <Typography component="h1" variant="h5" color="inherit" noWrap className={classes.title}>
-            Admin Dashboard
+
+          <Typography
+            component="h1"
+            variant="h5"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            <Link className="ps-logo" to="/">
+              Admin Dashboard
+            </Link>
           </Typography>
-          <IconButton color="inherit">
-            
-          </IconButton>
+          <IconButton color="inherit"></IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -146,13 +158,12 @@ export default function AdminDashboard() {
           </IconButton>
         </div>
         <Divider />
-        <ListItem  setComponent={setComponent} />
+        <ListItem setComponent={setComponent} />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-        {view}         
-         
+          {view}
         </Container>
       </main>
     </div>
