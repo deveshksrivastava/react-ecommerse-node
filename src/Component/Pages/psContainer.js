@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React from "react";
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
 
 export default function psContainer() {
   return (
@@ -37,13 +33,6 @@ export default function psContainer() {
                         <a className="mr-5" href="blog.html">
                           Alena Studio
                         </a>
-<<<<<<< HEAD
-                      </span>{' '}
-                      -<span className="ml-5">Jun 10, 2017</span>
-                    </p>
-                    <p>State of Cybersecurity Resilience 2021…</p>
-                    <a className="ps-morelink" href="blog-detail.html">
-=======
                       </span>{" "}
                       -<span className="ml-5">Jun 1, 2022</span>
                     </p>
@@ -55,7 +44,6 @@ export default function psContainer() {
                       fit, comfort, fatigue and grip.…
                     </p>
                     <a className="ps-morelink" href="#">
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
                       Read more<i className="fa fa-long-arrow-right"></i>
                     </a>
                   </div>
@@ -65,11 +53,7 @@ export default function psContainer() {
                 <div className="ps-post">
                   <div className="ps-post__thumbnail">
                     <a className="ps-post__overlay" href="blog-detail.html"></a>
-<<<<<<< HEAD
-                    <img src="images/blog/2.jpg" alt="" />
-=======
                     <img src="images/blog/second.jpg" alt="" />
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
                   </div>
                   <div className="ps-post__content">
                     <a className="ps-post__title" href="blog-detail.html">
@@ -78,22 +62,6 @@ export default function psContainer() {
                     <p className="ps-post__meta">
                       <span>
                         By:
-<<<<<<< HEAD
-                        <a className="mr-5" href="blog.html">
-                          Alena Studio
-                        </a>
-                      </span>{' '}
-                      -<span className="ml-5">Jun 10, 2017</span>
-                    </p>
-                    <p>
-                      Leverage agile frameworks to provide a robust synopsis for
-                      high level overviews. Iterative approaches to corporate
-                      strategy foster collaborative thinking to further. In our
-                      annual survey among 4,744 global respondents around the
-                      current state of cybersecurity resilience, we found 85%...
-                    </p>
-                    <a className="ps-morelink" href="blog-detail.html">
-=======
                         <a className="mr-5" href="#">
                           Alena Studio
                         </a>
@@ -109,7 +77,6 @@ export default function psContainer() {
                       functionality.
                     </p>
                     <a className="ps-morelink" href="#">
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
                       Read more<i className="fa fa-long-arrow-right"></i>
                     </a>
                   </div>
@@ -118,19 +85,11 @@ export default function psContainer() {
               <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                 <div className="ps-post">
                   <div className="ps-post__thumbnail">
-<<<<<<< HEAD
-                    <a className="ps-post__overlay" href="blog-detail.html"></a>
-                    <img src="images/blog/3.jpg" alt="" />
-                  </div>
-                  <div className="ps-post__content">
-                    <a className="ps-post__title" href="blog-detail.html">
-=======
                     <a className="ps-post__overlay" href="#"></a>
                     <img src="images/blog/Third.jpg" alt="" />
                   </div>
                   <div className="ps-post__content">
                     <a className="ps-post__title" href="#">
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
                       Nike’s Latest Football Cleat Breaks the Mold
                     </a>
                     <p className="ps-post__meta">
@@ -139,15 +98,6 @@ export default function psContainer() {
                         <a className="mr-5" href="blog.html">
                           Alena Studio
                         </a>
-<<<<<<< HEAD
-                      </span>{' '}
-                      -<span className="ml-5">Jun 10, 2017</span>
-                    </p>
-                    <p>
-                      Leverage agile frameworks to provide a robust synopsis for
-                      high level overviews. Iterative approaches to corporate
-                      strategy foster collaborative thinking to further…
-=======
                       </span>{" "}
                       -<span className="ml-5">Jun 1, 2022</span>
                     </p>
@@ -159,7 +109,6 @@ export default function psContainer() {
                       Cochrane. Beyond that, testing also proved the shape
                       provides the best 360-degree traction on the field. “Every
                       time a player cuts he has an edge to push off,” she says.
->>>>>>> 209558268e5afa45fb47a5b9d5506ebf09b5d977
                     </p>
                     <a className="ps-morelink" href="blog-detail.html">
                       Read more<i className="fa fa-long-arrow-right"></i>
