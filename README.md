@@ -1,4 +1,6 @@
 # Fullstack project for E-Commerce Application
+This is a website that is builing the ecommerse mobile applcation. This is have 2 section in the frotend one for user and one for administrator. 
+Backend is use connect with MySQL DB.
 
 ### 💻 You will need:
 - [Node.js (npm / npx)](https://nodejs.org/)
