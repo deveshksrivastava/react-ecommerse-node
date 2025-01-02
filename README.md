@@ -34,6 +34,9 @@ npm run dev
  - Express
  - MYSQL
 
+## Conclusion
+Fullstack appliation
+
 
 ### Tech Stack
  - http://localhost:3000/(frontend)
